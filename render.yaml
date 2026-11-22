@@ -63,9 +63,9 @@ services:
         value: ${FRONTEND_URL}  # Ex: https://hub-music-frontend.vercel.app
 
   # ============================================
-  # Banco de Dados MySQL (Render Externo)
+  # Banco de Dados PostgreSQL (Render Managed)
   # ============================================
-  - type: mysql
+  - type: postgres
     name: hub-music-db
     region: sa
     plan: free  # Plano gratuito do Render (512 MB)
