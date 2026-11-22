@@ -28,7 +28,8 @@ services:
       - key: PORT
         value: "10000"  # Render define PORT automaticamente
       - key: DATABASE_URL
-        fromDatabase:
+        fromService:
+          type: postgres
           name: hub-music-db
           property: connectionString
       - key: JWT_SECRET
