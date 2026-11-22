@@ -37,11 +37,11 @@ const app = Fastify({
 async function setupPlugins() {
   // CORS - allow configured frontend + known Vercel domain + localhost
   const allowedOrigins: string[] = [
-    process.env.FRONTEND_URL,
+    process.env.FRONTEND_URL ?? '',
     'https://hub-music.vercel.app',
     'http://localhost:5173',
     'http://127.0.0.1:5173'
-  ].filter((v): v is string => typeof v === 'string' && v.length > 0);
+  ].filter((v): v is string => typeof v === 'string' && v.length > 0) as string[];
 
   await app.register(cors, {
     origin: allowedOrigins,
