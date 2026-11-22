@@ -7,7 +7,7 @@
 [![Fastify](https://img.shields.io/badge/Fastify-4.x-blue?logo=fastify)](https://fastify.dev/)
 [![React](https://img.shields.io/badge/React-18.x-blue?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql)](https://www.mysql.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)](https://www.postgresql.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
 
 ---
@@ -43,7 +43,7 @@ O **Hub Music** é uma plataforma de streaming e compartilhamento de áudio tota
 - **Controle total** — edite ou exclua suas faixas a qualquer momento
 
 ### 🔧 Técnico
-- **Backend:** Node.js + Fastify + TypeScript + Prisma + MySQL
+- **Backend:** Node.js + Fastify + TypeScript + Prisma + PostgreSQL
 - **Frontend:** React 18 + Vite + Tailwind CSS + shadcn/ui
 - **Player:** Howler.js + Wavesurfer.js
 - **APIs públicas:** Deezer, MusicBrainz, Free To Use, Jamendo, LRCLIB, Radio Browser
@@ -55,9 +55,9 @@ O **Hub Music** é uma plataforma de streaming e compartilhamento de áudio tota
 
 O Hub Music está configurado para rodar totalmente na nuvem:
 
-- **Backend:** [Render](https://render.com) (Node.js + Fastify + Prisma + MySQL)
+- **Backend:** [Render](https://render.com) (Node.js + Fastify + Prisma + PostgreSQL)
 - **Frontend:** [Vercel](https://vercel.com) (React 18 + Vite)
-- **Banco:** MySQL externo (Aiven/Railway) via DATABASE_URL
+- **Banco:** PostgreSQL gerenciado pelo Render (nativo, sem instalação)
 - **Sem upload de músicas dos artistas** — apenas APIs públicas (Deezer, MusicBrainz, etc.)
 
 ### Pré-requisitos
@@ -70,7 +70,7 @@ O Hub Music está configurado para rodar totalmente na nuvem:
 
 ### 1️⃣ Banco de Dados (Render Gerenciado)
 
-O Render oferece banco de dados MySQL nativo! Quando você conectar seu GitHub ao Render, ele cria o banco automaticamente.
+O Render oferece banco de dados PostgreSQL nativo! Quando você conectar seu GitHub ao Render, ele cria o banco automaticamente.
 
 O `render.yaml` inclui o serviço de banco — nada para configurar manualmente.
 
@@ -98,7 +98,7 @@ O `render.yaml` inclui o serviço de banco — nada para configurar manualmente.
 | `FRONTEND_URL` | `https://seu-app.vercel.app` |
 | `API_URL` | `https://seu-backend.onrender.com` |
 
-O `DATABASE_URL` é obtido automaticamente do banco MySQL criado pelo Render.
+O `DATABASE_URL` é obtido automaticamente do banco PostgreSQL criado pelo Render.
 
 O Render usará o arquivo `render.yaml` na raiz do projeto para configurar automaticamente.
 
@@ -121,14 +121,14 @@ O Render usará o arquivo `render.yaml` na raiz do projeto para configurar autom
 
 ### 4️⃣ Rodar Localmente (Opcional - apenas para desenvolvimento)
 
-Se quiser testar localmente antes do deploy, você precisa de um banco MySQL:
+Se quiser testar localmente antes do deploy, você precisa de um banco PostgreSQL:
 
 ```powershell
 # Backend
 cd backend
 npm install
 cp .env.example .env
-# Edite o .env com sua DATABASE_URL do MySQL
+# Edite o .env com sua DATABASE_URL do PostgreSQL
 npm run prisma:generate
 npm run prisma:migrate
 npm run dev
@@ -155,7 +155,7 @@ O backend está configurado para deploy no [Render](https://render.com) usando o
 ### Passos
 
 1. No Render, crie um novo **Web Service** conectando seu GitHub
-2. O Render cria automaticamente o banco MySQL (`hub-music-db`)
+2. O Render cria automaticamente o banco PostgreSQL (`hub-music-db`)
 3. Use o arquivo `render.yaml` na raiz do projeto para configurar automaticamente
 4. Configure as variáveis `FRONTEND_URL`, `API_URL` no painel do Render
 5. O comando de build executa: `npm install && npx prisma generate && npx prisma migrate deploy`
@@ -175,7 +175,7 @@ hub-music/
 │   │   ├── services/        # Serviços (storage, cache, APIs externas)
 │   │   ├── middleware/      # Autenticação e validação
 │   │   └── utils/           # Prisma, erros
-│   ├── prisma/              # Schema do banco (MySQL)
+│   ├── prisma/              # Schema do banco (PostgreSQL)
 ├── frontend/                # Interface React + Vite
 │   ├── src/
 │   │   ├── components/      # Componentes (ui, player, track, playlist)

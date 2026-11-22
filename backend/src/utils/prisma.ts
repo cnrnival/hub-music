@@ -1,7 +1,7 @@
 /**
  * Hub Music - Prisma Client
- * Cliente Prisma singleton: conexão com MySQL, reutilização em dev
- * Prisma Client singleton: MySQL connection, dev reuse
+ * Cliente Prisma singleton: conexão com PostgreSQL, reutilização em dev
+ * Prisma Client singleton: PostgreSQL connection, dev reuse
  * 
  * @languages pt-BR / en-US
  */

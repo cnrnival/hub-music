@@ -3,7 +3,7 @@
 Este guia explica como colocar o **Hub Music** em produção usando **Vercel para o frontend** e serviços separados para **backend e banco de dados**.
 
 > ⚠️ **Importante:** O Vercel é otimizado para frontends estáticos e funções serverless curtas. Como o backend do Hub Music precisa de:
-> - Conexão persistente com MySQL
+> - Conexão persistente com PostgreSQL
 >
 > Recomendamos **não rodar o backend no Vercel**. Use um serviço dedicado para o backend (Render) e mantenha apenas o frontend no Vercel.
 
@@ -27,7 +27,7 @@ Este guia explica como colocar o **Hub Music** em produção usando **Vercel par
                                               │ SQL
                                               ▼
                                    ┌──────────────────┐
-                                   │  MySQL               │
+                                   │  PostgreSQL          │
                                    │  (Render)│
                                    └──────────────────┘
 ```
@@ -88,7 +88,7 @@ Como o backend precisa de conexão estável com banco de dados, hospede em um se
 
 | Serviço | Por que | Custo aproximado |
 |---------|---------|------------------|
-| **Render** | Nativo, banco MySQL incluído | Grátis / $7/mês |
+| **Render** | Nativo, banco PostgreSQL incluído | Grátis / $7/mês |
 
 ### Exemplo com Render
 
@@ -102,7 +102,7 @@ Como o backend precisa de conexão estável com banco de dados, hospede em um se
 
 | Variável | Exemplo |
 |----------|---------|
-| `DATABASE_URL` | `mysql://user:pass@host:3306/db` |
+| `DATABASE_URL` | `postgresql://user:pass@host:5432/db` |
 | `JWT_SECRET` | `sua-chave-secreta-muito-longa` |
 | `JWT_REFRESH_SECRET` | `outra-chave-diferente` |
 | `JWT_EXPIRES_IN` | `15m` |
@@ -117,9 +117,9 @@ Como o backend precisa de conexão estável com banco de dados, hospede em um se
 
 ---
 
-## 3️⃣ Banco de Dados (MySQL)
+## 3️⃣ Banco de Dados (PostgreSQL)
 
-O banco MySQL é nativo do Render — nada para configurar manualmente!
+O banco PostgreSQL é nativo do Render — nada para configurar manualmente!
 
 Quando você conectar seu GitHub ao Render, ele automaticamente cria o banco `hub-music-db` (veja o arquivo `render.yaml`).
 
@@ -155,7 +155,7 @@ hub-music/
 - [ ] `.env` NÃO foi commited (está no `.gitignore`)
 - [ ] `estudo/` e `rea_spotify/` não estão no commit (estão no `.gitignore`)
 - [ ] Backend hospedado (Render) com variáveis configuradas
-- [ ] MySQL rodando (Render externo)
+- [ ] PostgreSQL rodando (Render)
 - [ ] `VITE_API_URL` configurado no Vercel apontando para o backend
 - [ ] Build do frontend funciona localmente: `cd frontend && npm run build`
 
