@@ -1,9 +1,12 @@
 /**
  * Hub Music - Search Routes
- * Rotas de busca: unificada (local + Deezer), sugestões, tendências, gêneros
- * Search routes: unified (local + Deezer), suggestions, trending, genres
+ * Rotas de busca: unificada (Deefer + APIs públicas), sugestões, tendências, gêneros
+ * Search routes: unified (public APIs + Deezer), suggestions, trending, genres
  * 
  * @languages pt-BR / en-US
+ *
+ * Note: Busca local não suportada — apenas APIs públicas (Deezer, Free To Use, Jamendo, LRCLIB).
+ * Note: Local search not supported — only public APIs (Deezer, Free To Use, Jamendo, LRCLIB).
  */
 
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';

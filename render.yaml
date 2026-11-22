@@ -6,10 +6,8 @@
 # COMO USAR:
 # 1. Conecte seu repositório GitHub ao Render
 # 2. Crie um "Web Service" apontando para este render.yaml
-# 3. No painel do Render, adicione a variável DATABASE_URL com sua conexão MySQL
-#    Ex: mysql://usuario:senha@host:3306/banco
-# 4. O banco MySQL pode ser um serviço externo (Aiven, Railway, etc.)
-#     O Render não oferece MySQL nativo gratuito.
+# 3. O Render cria automaticamente o banco MySQL (hub-music-db)
+# 4. A variável DATABASE_URL é obtida do banco via fromDatabase
 # ============================================
 
 services:
@@ -30,7 +28,9 @@ services:
       - key: PORT
         value: "10000"  # Render define PORT automaticamente
       - key: DATABASE_URL
-        sync: false  # Configure manualmente no painel do Render com sua URL MySQL
+        fromDatabase:
+          name: hub-music-db
+          property: connectionString
       - key: JWT_SECRET
         generate: true
       - key: JWT_REFRESH_SECRET
@@ -61,3 +61,12 @@ services:
         value: "https://sayamusicapi.shnwazdeveloperx.workers.dev"
       - key: FRONTEND_URL
         value: ${FRONTEND_URL}  # Ex: https://hub-music-frontend.vercel.app
+
+  # ============================================
+  # Banco de Dados MySQL (Render Externo)
+  # ============================================
+  - type: mysql
+    name: hub-music-db
+    region: sa
+    plan: free  # Plano gratuito do Render (512 MB)
+    ipAllowList: []

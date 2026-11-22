@@ -7,7 +7,7 @@
 [![Fastify](https://img.shields.io/badge/Fastify-4.x-blue?logo=fastify)](https://fastify.dev/)
 [![React](https://img.shields.io/badge/React-18.x-blue?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?logo=mysql)](https://www.mysql.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql)](https://www.mysql.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
 
 ---
@@ -57,25 +57,22 @@ O Hub Music está configurado para rodar totalmente na nuvem:
 
 - **Backend:** [Render](https://render.com) (Node.js + Fastify + Prisma + MySQL)
 - **Frontend:** [Vercel](https://vercel.com) (React 18 + Vite)
-- **Banco:** MySQL externo ([Aiven](https://aiven.io/), [Railway](https://railway.app/), etc.)
+- **Banco:** MySQL externo (Aiven/Railway) via DATABASE_URL
 - **Sem upload de músicas dos artistas** — apenas APIs públicas (Deezer, MusicBrainz, etc.)
 
 ### Pré-requisitos
 
 - Conta no [Render](https://render.com)
 - Conta no [Vercel](https://vercel.com)
-- Banco MySQL externo ([Aiven](https://aiven.io/), [Railway](https://railway.app/), etc.)
 - Repositório no GitHub
 
 ---
 
-### 1️⃣ Banco de Dados MySQL (Nuvem)
+### 1️⃣ Banco de Dados (Render Gerenciado)
 
-Crie um banco MySQL em um serviço externo (ex: Aiven, Railway) e anote a `DATABASE_URL`:
+O Render oferece banco de dados MySQL nativo! Quando você conectar seu GitHub ao Render, ele cria o banco automaticamente.
 
-```
-mysql://usuario:senha@host:3306/banco
-```
+O `render.yaml` inclui o serviço de banco — nada para configurar manualmente.
 
 ---
 
@@ -93,7 +90,6 @@ mysql://usuario:senha@host:3306/banco
 |----------|-----------------|
 | `NODE_ENV` | `production` |
 | `PORT` | `10000` |
-| `DATABASE_URL` | `mysql://usuario:senha@host:3306/banco` |
 | `JWT_SECRET` | `sua-chave-secreta-muito-longa` |
 | `JWT_REFRESH_SECRET` | `outra-chave-diferente` |
 | `JWT_EXPIRES_IN` | `15m` |
@@ -101,6 +97,8 @@ mysql://usuario:senha@host:3306/banco
 | `COOKIE_SECRET` | `sua-chave-de-cookie-secreta` |
 | `FRONTEND_URL` | `https://seu-app.vercel.app` |
 | `API_URL` | `https://seu-backend.onrender.com` |
+
+O `DATABASE_URL` é obtido automaticamente do banco MySQL criado pelo Render.
 
 O Render usará o arquivo `render.yaml` na raiz do projeto para configurar automaticamente.
 
@@ -123,14 +121,14 @@ O Render usará o arquivo `render.yaml` na raiz do projeto para configurar autom
 
 ### 4️⃣ Rodar Localmente (Opcional - apenas para desenvolvimento)
 
-Se quiser testar localmente antes do deploy:
+Se quiser testar localmente antes do deploy, você precisa de um banco MySQL:
 
 ```powershell
 # Backend
 cd backend
 npm install
 cp .env.example .env
-# Edite o .env com sua DATABASE_URL do MySQL externo
+# Edite o .env com sua DATABASE_URL do MySQL
 npm run prisma:generate
 npm run prisma:migrate
 npm run dev
@@ -143,8 +141,6 @@ npm run dev
 
 O front estará em **http://localhost:5173** e o back em **http://localhost:3000**.
 
-> ⚠️ Para desenvolvimento local, você ainda precisa de um MySQL externo (não precisa ser XAMPP local — pode ser o mesmo banco da nuvem).
-
 ---
 
 ## 🌐 Deploy no Render (Produção)
@@ -154,19 +150,14 @@ O backend está configurado para deploy no [Render](https://render.com) usando o
 ### Pré-requisitos para produção
 
 - Um repositório no GitHub com o código do backend
-- Um banco MySQL externo (o Render não oferece MySQL nativo gratuito)
-  - Opções: [Aiven](https://aiven.io/), [Railway](https://railway.app/), ou qualquer provedor MySQL
 - Um frontend hospedado (ex: [Vercel](https://vercel.com))
 
 ### Passos
 
 1. No Render, crie um novo **Web Service** conectando seu GitHub
-2. Use o arquivo `render.yaml` na raiz do projeto para configurar automaticamente
-3. No painel do Render, adicione a variável `DATABASE_URL` com sua conexão MySQL:
-   ```
-   mysql://usuario:senha@host:3306/banco
-   ```
-4. Configure as demais variáveis (`FRONTEND_URL`, `API_URL`, etc.)
+2. O Render cria automaticamente o banco MySQL (`hub-music-db`)
+3. Use o arquivo `render.yaml` na raiz do projeto para configurar automaticamente
+4. Configure as variáveis `FRONTEND_URL`, `API_URL` no painel do Render
 5. O comando de build executa: `npm install && npx prisma generate && npx prisma migrate deploy`
 6. O comando de start executa: `npm start`
 
@@ -181,14 +172,14 @@ hub-music/
 ├── backend/                 # API Node.js + Fastify
 │   ├── src/
 │   │   ├── routes/          # Rotas (auth, tracks, playlists, social, search)
-│   │   ├── services/        # Serviços (áudio, storage, cache, APIs externas)
+│   │   ├── services/        # Serviços (storage, cache, APIs externas)
 │   │   ├── middleware/      # Autenticação e validação
 │   │   └── utils/           # Prisma, erros
 │   ├── prisma/              # Schema do banco (MySQL)
 ├── frontend/                # Interface React + Vite
 │   ├── src/
 │   │   ├── components/      # Componentes (ui, player, track, playlist)
-│   │   ├── pages/           # Páginas (Home, Search, Perfil, Upload, etc.)
+│   │   ├── pages/           # Páginas (Home, Search, Perfil, etc.)
 │   │   └── hooks/           # useAuth, usePlayer, useSearch
 ├── estudo/                  # Planejamento interno (não é commitado)
 ├── .env.example             # Exemplo de variáveis de ambiente

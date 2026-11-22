@@ -4,6 +4,9 @@
  * Playlist routes: CRUD, add/remove tracks, reordering
  * 
  * @languages pt-BR / en-US
+ *
+ * Note: Não há upload de arquivos de áudio — faixas vêm de APIs públicas.
+ * Note: No audio file upload — tracks come from public APIs.
  */
 
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';

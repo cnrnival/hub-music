@@ -5,7 +5,7 @@ Este guia explica como colocar o **Hub Music** em produção usando **Vercel par
 > ⚠️ **Importante:** O Vercel é otimizado para frontends estáticos e funções serverless curtas. Como o backend do Hub Music precisa de:
 > - Conexão persistente com MySQL
 >
-> Recomendamos **não rodar o backend no Vercel**. Use um serviço dedicado para o backend (Render, Railway, Fly.io) e mantenha apenas o frontend no Vercel.
+> Recomendamos **não rodar o backend no Vercel**. Use um serviço dedicado para o backend (Render) e mantenha apenas o frontend no Vercel.
 
 ---
 
@@ -21,14 +21,14 @@ Este guia explica como colocar o **Hub Music** em produção usando **Vercel par
                                               ▼
                                    ┌──────────────────┐
                                    │   Backend        │
-                                   │  (Render/Railway)│
+                                   │  (Render)│
                                    │  Fastify + Prisma│
                                    └──────────┬─────────┘
                                               │ SQL
                                               ▼
                                    ┌──────────────────┐
-                                   │  MySQL          │
-                                   │  (Aiven/Railway)│
+                                   │  MySQL               │
+                                   │  (Render)│
                                    └──────────────────┘
 ```
 
@@ -88,9 +88,7 @@ Como o backend precisa de conexão estável com banco de dados, hospede em um se
 
 | Serviço | Por que | Custo aproximado |
 |---------|---------|------------------|
-| **Render** | Simples, suporte a Node | Grátis / $7/mês |
-| **Railway** | Fácil de configurar, banco incluso | Grátis / $5/mês |
-| **Fly.io** | Bom para aplicações Node/Go | Grátis / pago |
+| **Render** | Nativo, banco MySQL incluído | Grátis / $7/mês |
 
 ### Exemplo com Render
 
@@ -121,29 +119,19 @@ Como o backend precisa de conexão estável com banco de dados, hospede em um se
 
 ## 3️⃣ Banco de Dados (MySQL)
 
-Não rode MySQL no Vercel. Use um serviço gerenciado:
+O banco MySQL é nativo do Render — nada para configurar manualmente!
 
-| Serviço | Link | Grátis? |
-|---------|------|---------|
-| **Aiven** | aiven.io | Sim (plano free) |
-| **Railway** | railway.app | Teste gratuito |
-| **PlanetScale** | planetscale.com | Plano pago |
+Quando você conectar seu GitHub ao Render, ele automaticamente cria o banco `hub-music-db` (veja o arquivo `render.yaml`).
 
-Após criar o banco, copie a `DATABASE_URL` e coloque no backend (Render/Railway) e no `.env` local para desenvolvimento.
+A `DATABASE_URL` é obtida do banco via `fromDatabase` no `render.yaml`.
 
 ---
-
----
-## 5️⃣ Estrutura final recomendada
 
 ## 5️⃣ Estrutura final recomendada
 
 ```
 hub-music/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── backend/              → Render / Railway / Fly.io
+├── backend/              → Render
 │   ├── src/
 │   ├── prisma/
 │   └── package.json
@@ -166,8 +154,8 @@ hub-music/
 - [ ] Repositório no GitHub (público ou privado)
 - [ ] `.env` NÃO foi commited (está no `.gitignore`)
 - [ ] `estudo/` e `rea_spotify/` não estão no commit (estão no `.gitignore`)
-- [ ] Backend hospedado (Render/Railway) com variáveis configuradas
-- [ ] Banco MySQL rodando (Aiven/Railway)
+- [ ] Backend hospedado (Render) com variáveis configuradas
+- [ ] MySQL rodando (Render externo)
 - [ ] `VITE_API_URL` configurado no Vercel apontando para o backend
 - [ ] Build do frontend funciona localmente: `cd frontend && npm run build`
 

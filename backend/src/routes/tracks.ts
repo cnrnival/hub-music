@@ -1,9 +1,12 @@
 /**
  * Hub Music - Track Routes
- * Rotas de faixas: upload, listagem, reprodução, waveform, stream
- * Track routes: upload, list, playback, waveform, stream
+ * Rotas de faixas: listagem, reprodução, waveform, stream (APIs públicas)
+ * Track routes: list, playback, waveform, stream (public APIs only)
  * 
  * @languages pt-BR / en-US
+ *
+ * Note: Upload de áudio local não suportado. Use apenas APIs públicas (Deezer, etc.).
+ * Note: Local audio upload not supported. Use public APIs only (Deezer, etc.).
  */
 
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
