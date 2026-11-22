@@ -8,7 +8,15 @@
 
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL;
+
+if (!API_URL) {
+  console.error('[API] VITE_API_URL não configurada! Configure no Vercel: Settings → Environment Variables');
+  // Em dev, usa localhost. Em prod, vai falhar explicitamente.
+  if (import.meta.env.DEV) {
+    console.warn('[API] Usando fallback localhost:3000 (apenas desenvolvimento)');
+  }
+}
 
 class ApiClient {
   private client: AxiosInstance;

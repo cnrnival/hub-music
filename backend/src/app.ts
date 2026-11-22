@@ -35,9 +35,16 @@ const app = Fastify({
 });
 
 async function setupPlugins() {
-  // CORS
+  // CORS - allow configured frontend + known Vercel domain + localhost
+  const allowedOrigins = [
+    process.env.FRONTEND_URL,
+    'https://hub-music.vercel.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173'
+  ].filter(Boolean);
+
   await app.register(cors, {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
   });
