@@ -1,13 +1,13 @@
 # ============================================
 # Render.yaml - Deploy do Hub Music
-# Backend no Render + MySQL externo
+# Backend no Render + PostgreSQL (Render Managed)
 # ============================================
 #
 # COMO USAR:
 # 1. Conecte seu repositório GitHub ao Render
 # 2. Crie um "Web Service" apontando para este render.yaml
-# 3. O Render cria automaticamente o banco MySQL (hub-music-db)
-# 4. A variável DATABASE_URL é obtida do banco via fromDatabase
+# 3. O Render cria automaticamente o banco PostgreSQL (hub-music-db)
+# 4. A variável DATABASE_URL é obtida do banco via fromService
 # ============================================
 
 services:
@@ -17,7 +17,7 @@ services:
   - type: web
     name: hub-music-backend
     env: node
-    region: sa  # São Paulo (mais próximo do Brasil)
+    region: oregon  # Mesma região do banco PostgreSQL (Ohio/us-east-1)
     branch: main
     rootDir: backend
     buildCommand: "npm install && npx prisma generate && npx prisma migrate deploy"
@@ -68,6 +68,6 @@ services:
   # ============================================
   - type: postgres
     name: hub-music-db
-    region: sa
+    region: oregon
     plan: free  # Plano gratuito do Render (512 MB)
     ipAllowList: []
