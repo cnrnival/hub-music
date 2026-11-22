@@ -7,10 +7,10 @@
  */
 
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api } from '@/lib/api';
 import { TrackCard } from '../components/track/TrackCard';
 import { PlaylistCard } from '../components/playlist/PlaylistCard';
-import { cn, formatNumber } from '../lib/utils';
+import { cn, formatNumber } from '@/lib/utils';
 import { Play, Heart, Clock, TrendingUp, Plus } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';

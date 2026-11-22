@@ -176,4 +176,4 @@ export const Waveform = forwardRef<WaveformRef, WaveformProps>(
 
 Waveform.displayName = 'Waveform';
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';

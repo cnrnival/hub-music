@@ -6,22 +6,26 @@
  * @languages pt-BR / en-US
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   Users, UserPlus, Heart, Music, Sparkles, RefreshCw,
   Share2, MoreHorizontal, ChevronRight, Check, X,
-  Calendar, Clock, TrendingUp, BarChart2
+  Calendar, Clock, TrendingUp, BarChart2,
+  Play, Loader2, Download, LogOut, Moon, Smartphone, Shuffle, Settings, Edit
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Avatar } from '../../ui/avatar';
-import { Badge } from '../../ui/badge';
-import { Progress } from '../../ui/progress';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../ui/card';
-import { ScrollArea } from '../../ui/scroll-area';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { formatNumber, formatDuration } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Switch } from '@/ui/switch';
+import { Avatar } from '@/ui/avatar';
+import { Badge } from '@/ui/badge';
+import { Progress } from '@/ui/progress';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/ui/card';
+import { ScrollArea } from '@/ui/scroll-area';
+import { TrackCard } from '@/components/track/TrackCard';
+import { formatNumber, formatDuration, formatRelativeTime } from '@/lib/utils';
+import { cn } from '@/lib/utils';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui/tabs';
 
 interface BlendData {
   id: string;
@@ -284,7 +288,7 @@ export function BlendPage() {
                     <DropdownMenuItem onClick={handleLeaveBlend} className="text-error">
                       <LogOut className="w-4 h-4 mr-2" /> Sair do Blend
                     </DropdownMenuItem>
-                  </DropdownMenuContent
+                  </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             </div>
@@ -512,4 +516,4 @@ export function BlendPage() {
   );
 }
 
-import { useEffect, Tabs, TabsList, TabsTrigger, TabsContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, Settings, Edit, Download, LogOut, Moon, Calendar, Smartphone, Shuffle } from 'lucide-react';
+export default BlendPage;

@@ -6,16 +6,16 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { formatRelativeTime } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
+import { formatRelativeTime } from '@/lib/utils';
 import { Play, Heart, MoreHorizontal, Clock, Calendar, Music, Bell, BellOff } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { AlbumCard } from '../../../components/album/AlbumCard';
-import { usePlayerStore } from '../../../state/playerStore';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { TrackCard } from '@/components/track/TrackCard';
+import { AlbumCard } from '@/components/album/AlbumCard';
+import { usePlayerStore } from '@/state/playerStore';
 
 interface FeedItem {
   id: string;
@@ -238,4 +238,4 @@ export function WhatsNewFeed({
   );
 }
 
-import { ChevronRight, Music, Music2, ListMusic, User, Clock, Calendar, Bell, BellOff, Play, Heart, MoreHorizontal, Share2, Plus } from 'lucide-react';
+import { ChevronRight, Music, Music2, ListMusic, User, Clock, Calendar, Bell, BellOff, Play, Heart, MoreHorizontal, Share2, Plus } from 'lucide-react';export default WhatsNewFeed;

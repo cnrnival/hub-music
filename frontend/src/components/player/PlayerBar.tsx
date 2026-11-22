@@ -213,7 +213,7 @@ export function PlayerBar() {
           <span className={cn('w-10', isMobile ? 'w-8 text-xs' : 'w-10 text-sm')}>
             {formatDuration(duration)}
           </span>
-        </span>
+        </div>
 
         {/* Queue button */}
         <button

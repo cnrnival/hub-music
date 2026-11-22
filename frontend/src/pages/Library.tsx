@@ -9,9 +9,9 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router-dom';
-import { api } from '../lib/api';
-import { formatNumber, formatDuration } from '../lib/utils';
-import { cn } from '../lib/utils';
+import { api } from '@/lib/api';
+import { formatNumber, formatDuration } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { TrackCard } from '../components/track/TrackCard';
 import { PlaylistCard } from '../components/playlist/PlaylistCard';
 import { Button } from '../components/ui/button';

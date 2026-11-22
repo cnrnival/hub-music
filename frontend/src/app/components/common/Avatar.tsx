@@ -6,7 +6,7 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 
 type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 

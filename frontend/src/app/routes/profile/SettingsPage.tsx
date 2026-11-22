@@ -13,22 +13,22 @@ import {
   Mail, Lock, Key, Eye, EyeOff, Camera, Image, Trash2,
   Save, Loader2, Check, AlertCircle, Info
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { Textarea } from '../../ui/textarea';
-import { Label } from '../../ui/label';
-import { Switch } from '../../ui/switch';
-import { Separator } from '../../ui/separator';
-import { Avatar } from '../../ui/avatar';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../ui/tabs';
-import { ScrollArea } from '../../ui/scroll-area';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../ui/card';
-import { Badge } from '../../ui/badge';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from '../../ui/dialog';
-import { Toast, ToastProvider, ToastViewport, ToastTitle, ToastDescription, ToastClose, ToastAction } from '../../ui/toast';
-import { useAuth } from '../../../hooks/auth/useAuth';
-import { useUpdateProfile, useChangePassword, useDeleteAccount, useUploadAvatar, useUploadCover } from '../../../hooks/data/useProfile';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
+import { Textarea } from '@/ui/textarea';
+import { Label } from '@/ui/label';
+import { Switch } from '@/ui/switch';
+import { Separator } from '@/ui/separator';
+import { Avatar } from '@/ui/avatar';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui/tabs';
+import { ScrollArea } from '@/ui/scroll-area';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/ui/card';
+import { Badge } from '@/ui/badge';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from '@/ui/dialog';
+import { Toast, ToastProvider, ToastViewport, ToastTitle, ToastDescription, ToastClose, ToastAction } from '@/ui/toast';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { useUpdateProfile, useChangePassword, useDeleteAccount, useUploadAvatar, useUploadCover } from '@/hooks/data/useProfile';
+import { cn } from '@/lib/utils';
 
 export function SettingsPage() {
   const navigate = useNavigate();
@@ -742,12 +742,12 @@ export function SettingsPage() {
                       <p className="font-medium text-text-primary">{item.label}</p>
                       <div className="flex gap-2">
                         {item.options.map((opt) => (
-                          <label key={opt} className="flex-1 p-3 rounded-lg border-2 cursor-pointer transition-colors text-center"
-                            className={cn(
-                              privacy[item.key] === opt
-                                ? 'border-primary bg-primary/10 text-primary'
-                                : 'border-border-primary text-text-secondary hover:border-primary/50'
-                            )}>
+                          <label key={opt} className={cn(
+                            "flex-1 p-3 rounded-lg border-2 cursor-pointer transition-colors text-center",
+                            privacy[item.key] === opt
+                              ? 'border-primary bg-primary/10 text-primary'
+                              : 'border-border-primary text-text-secondary hover:border-primary/50'
+                          )}>
                             <input
                               type="radio"
                               name={item.key}
@@ -782,12 +782,12 @@ export function SettingsPage() {
                     <Label>Tema</Label>
                     <div className="flex gap-2 mt-2">
                       {(['light', 'dark', 'system'] as const).map((theme) => (
-                        <label key={theme} className="flex-1 p-3 rounded-lg border-2 cursor-pointer text-center transition-colors"
-                          className={cn(
-                            appearance.theme === theme
-                              ? 'border-primary bg-primary/10 text-primary'
-                              : 'border-border-primary text-text-secondary hover:border-primary/50'
-                          )}>
+                        <label key={theme} className={cn(
+                          "flex-1 p-3 rounded-lg border-2 cursor-pointer text-center transition-colors",
+                          appearance.theme === theme
+                            ? 'border-primary bg-primary/10 text-primary'
+                            : 'border-border-primary text-text-secondary hover:border-primary/50'
+                        )}>
                           <input
                             type="radio"
                             name="theme"
@@ -986,4 +986,4 @@ export function SettingsPage() {
   );
 }
 
-import { Monitor, Download } from 'lucide-react';
+import { Monitor, Download } from 'lucide-react';export default SettingsPage;

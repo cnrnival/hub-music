@@ -8,8 +8,8 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { Suspense, useState } from 'react';
-import { ScrollArea } from '../../ui/scroll-area';
-import { Skeleton } from '../../ui/skeleton';
+import { ScrollArea } from '@/ui/scroll-area';
+import { Skeleton } from '@/ui/skeleton';
 import { HeroSection } from './HeroSection';
 import { ChipsRow, genreChips, moodChips, decadeChips, activityChips } from './ChipsRow';
 import { PlaylistShelf } from './PlaylistShelf';
@@ -17,10 +17,10 @@ import { WhatsNewFeed } from './WhatsNewFeed';
 import { PromptedPlaylists } from './PromptedPlaylists';
 import { SocialPrompting } from './SocialPrompting';
 import { ContinueListening } from './ContinueListening';
-import { useTracks } from '../../../hooks/data/useTracks';
-import { usePlaylists } from '../../../hooks/data/usePlaylists';
-import { useSearch } from '../../../hooks/data/useSearch';
-import { useLibrary } from '../../../hooks/data/useLibrary';
+import { useTracks } from '@/hooks/data/useTracks';
+import { usePlaylists } from '@/hooks/data/usePlaylists';
+import { useSearch } from '@/hooks/data/useSearch';
+import { useLibrary } from '@/hooks/data/useLibrary';
 
 interface HomePageData {
   hero?: {
@@ -383,7 +383,7 @@ export function HomePage() {
             }))}
             onPlaylistClick={(p) => console.log('Playlist clicked:', p.id)}
             onPlayClick={(p) => console.log('Play playlist:', p.id)}
-          )}
+          />
 
           {/* Social Prompting */}
           <SocialPrompting

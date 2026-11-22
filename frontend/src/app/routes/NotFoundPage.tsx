@@ -8,8 +8,8 @@
 
 import { Link } from 'react-router-dom';
 import { Music, Search, Home, RotateCcw, Sparkles } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Card, CardContent } from '../../ui/card';
+import { Button } from '@/ui/button';
+import { Card, CardContent } from '@/ui/card';
 
 export function NotFoundPage() {
   return (
@@ -93,4 +93,4 @@ export function NotFoundPage() {
       </div>
     </div>
   );
-}
+}export default NotFoundPage;

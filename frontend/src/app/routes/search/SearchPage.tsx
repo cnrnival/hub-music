@@ -8,14 +8,14 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, X, Clock, TrendingUp, Music, User, ListMusic, SquarePlay, Mic, ChevronRight } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { ScrollArea } from '../../ui/scroll-area';
-import { Avatar } from '../../ui/avatar';
-import { Badge } from '../../ui/badge';
-import { useSearchStore } from '../../../state/searchStore';
-import { useSearch } from '../../../hooks/data/useSearch';
+import { Search, X, Clock, TrendingUp, Music, User, ListMusic, PlayCircle, Mic, ChevronRight } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
+import { ScrollArea } from '@/ui/scroll-area';
+import { Avatar } from '@/ui/avatar';
+import { Badge } from '@/ui/badge';
+import { useSearchStore } from '@/state/searchStore';
+import { useSearch } from '@/hooks/data/useSearch';
 
 interface SearchSuggestion {
   type: 'track' | 'artist' | 'album' | 'playlist' | 'show' | 'query';
@@ -349,4 +349,4 @@ export function SearchPage() {
   );
 }
 
-import { Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';export default SearchPage;

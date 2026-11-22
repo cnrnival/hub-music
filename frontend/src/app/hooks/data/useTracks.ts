@@ -7,7 +7,7 @@
  */
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../../../lib/api';
+import { api } from '@/lib/api';
 import type { Track } from '../../../types/player';
 
 // Query keys

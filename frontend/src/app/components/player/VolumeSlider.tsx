@@ -8,9 +8,9 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX, Volume1 } from 'lucide-react';
-import { Button } from '../ui/button';
-import { Slider } from '../ui/slider';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Slider } from '@/ui/slider';
+import { cn } from '@/lib/utils';
 
 interface VolumeSliderProps {
   volume: number;

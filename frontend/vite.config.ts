@@ -6,9 +6,18 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+    alias: [
+      { find: '@/components', replacement: path.resolve(__dirname, './src/app/components') },
+      { find: '@/ui', replacement: path.resolve(__dirname, './src/components/ui') },
+      { find: '@/common', replacement: path.resolve(__dirname, './src/app/components/common') },
+      { find: '@/state', replacement: path.resolve(__dirname, './src/app/state') },
+      { find: '@/hooks', replacement: path.resolve(__dirname, './src/app/hooks') },
+      { find: '@/lib', replacement: path.resolve(__dirname, './src/lib') },
+      { find: '@/app/lib', replacement: path.resolve(__dirname, './src/app/lib') },
+      { find: '@/pages', replacement: path.resolve(__dirname, './src/pages') },
+      { find: '@/hooks-root', replacement: path.resolve(__dirname, './src/hooks') },
+      { find: '@@', replacement: path.resolve(__dirname, './src') },
+    ],
   },
   build: {
     outDir: 'dist',

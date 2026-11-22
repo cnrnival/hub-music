@@ -13,21 +13,21 @@ import {
   Music, User, Calendar, ListMusic, Heart as HeartIcon, Edit, Trash2,
   Download, Plus, Shuffle, Repeat, Volume2, VolumeX, Clock
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { Slider } from '../../ui/slider';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { Tooltip, TooltipTrigger, TooltipContent } from '../../ui/tooltip';
-import { Separator } from '../../ui/separator';
-import { TrackRow } from '../../../components/track/TrackRow';
-import { TrackSkeleton } from '../../../components/track/TrackSkeleton';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
-import { usePlaylist, usePlaylistTracks, useFollowPlaylist, usePlaylistTracksInfinite } from '../../../hooks/data/usePlaylists';
-import { formatDuration, formatNumber, formatRelativeTime } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { Slider } from '@/ui/slider';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/ui/tooltip';
+import { Separator } from '@/ui/separator';
+import { TrackRow } from '@/components/track/TrackRow';
+import { TrackSkeleton } from '@/components/track/TrackSkeleton';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
+import { usePlaylist, usePlaylistTracks, useFollowPlaylist, usePlaylistTracksInfinite } from '@/hooks/data/usePlaylists';
+import { formatDuration, formatNumber, formatRelativeTime } from '@/lib/utils';
 
 interface PlaylistPageProps {
   playlistId?: string;
@@ -502,5 +502,5 @@ export function PlaylistPage({ playlistId: propPlaylistId }: PlaylistPageProps) 
   );
 }
 
-import { cn } from '../../../lib/utils';
-import { Loader2, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { Loader2, ChevronDown } from 'lucide-react';export default PlaylistPage;

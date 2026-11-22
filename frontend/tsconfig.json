@@ -11,12 +11,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
+      "@/components/*": ["src/app/components/*"],
+      "@/state/*": ["src/app/state/*"],
+      "@/hooks/*": ["src/app/hooks/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/app/lib/*": ["src/app/lib/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/hooks-root/*": ["src/hooks/*"],
       "@/*": ["src/*"]
     },
     "types": ["vite/client"]

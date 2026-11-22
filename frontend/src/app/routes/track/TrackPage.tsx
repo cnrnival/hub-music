@@ -14,23 +14,23 @@ import {
   Music, User, MessageSquare, Flag, Download, Calendar,
   Clock, ListMusic, Heart as HeartIcon, ExternalLink
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { Slider } from '../../ui/slider';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../ui/tabs';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { Tooltip, TooltipTrigger, TooltipContent } from '../../ui/tooltip';
-import { Separator } from '../../ui/separator';
-import { Waveform } from '../../../components/player/Waveform';
-import { MiniWaveform } from '../../../components/player/MiniWaveform';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
-import { useTrack, useTrackWaveform, useTrackStreamUrl, useLikeTrack, useRepostTrack } from '../../../hooks/data/useTracks';
-import { useComments, useAddComment } from '../../../hooks/data/useSocial';
-import { formatDuration, formatNumber, formatRelativeTime } from '../../../lib/utils';
-import { parseLRC, getVisibleLyrics } from '../../../lib/lrc';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { Slider } from '@/ui/slider';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui/tabs';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/ui/tooltip';
+import { Separator } from '@/ui/separator';
+import { Waveform } from '@/components/player/Waveform';
+import { MiniWaveform } from '@/components/player/MiniWaveform';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
+import { useTrack, useTrackWaveform, useTrackStreamUrl, useLikeTrack, useRepostTrack } from '@/hooks/data/useTracks';
+import { useComments, useAddComment } from '@/hooks/data/useSocial';
+import { formatDuration, formatNumber, formatRelativeTime } from '@/lib/utils';
+import { parseLRC, getVisibleLyrics } from '@/lib/lrc';
 
 interface TrackPageProps {
   trackId?: string;
@@ -746,5 +746,5 @@ export function TrackPage({ trackId: propTrackId }: TrackPageProps) {
   );
 }
 
-import { cn } from '../../../lib/utils';
-import { Check, Plus, Grid, List, Download } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { Check, Plus, Grid, List, Download } from 'lucide-react';export default TrackPage;

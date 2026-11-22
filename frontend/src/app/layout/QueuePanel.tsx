@@ -7,7 +7,7 @@
  */
 
 import { useState } from 'react';
-import { cn } from '../../lib/utils';
+import { cn, formatDuration } from '@/lib/utils';
 import {
   X,
   ChevronLeft,
@@ -21,11 +21,10 @@ import {
   Trash2,
   Music,
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Avatar } from '../components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../components/ui/dropdown-menu';
-import { usePlayerStore } from '../../state/playerStore';
-import { formatDuration } from '../../lib/utils';
+import { Button } from '@/ui/button';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { usePlayerStore } from '@/state/playerStore';
 
 export function QueuePanel() {
   const {

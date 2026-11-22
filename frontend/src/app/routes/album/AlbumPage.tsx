@@ -11,23 +11,23 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {
   Play, Pause, Heart, Share2, MoreHorizontal, ChevronLeft, ChevronRight,
   Music, User, Calendar, ListMusic, Heart as HeartIcon, Clock, Download,
-  Check, Volume2, VolumeX, Shuffle, Repeat
+  Check, Volume2, VolumeX, Shuffle, Repeat, Plus, Flag
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { Slider } from '../../ui/slider';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { Tooltip, TooltipTrigger, TooltipContent } from '../../ui/tooltip';
-import { Separator } from '../../ui/separator';
-import { TrackRow } from '../../../components/track/TrackRow';
-import { TrackSkeleton } from '../../../components/track/TrackSkeleton';
-import { ArtistCard } from '../../../components/artist/ArtistCard';
-import { formatDuration, formatNumber, formatRelativeTime } from '../../../lib/utils';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useAlbum, useAlbumTracks } from '../../../hooks/data/useProfile';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { Slider } from '@/ui/slider';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/ui/tooltip';
+import { Separator } from '@/ui/separator';
+import { TrackRow } from '@/components/track/TrackRow';
+import { TrackSkeleton } from '@/components/track/TrackSkeleton';
+import { ArtistCard } from '@/components/artist/ArtistCard';
+import { formatDuration, formatNumber, formatRelativeTime } from '@/lib/utils';
+import { usePlayerStore } from '@/state/playerStore';
+import { useAlbum, useAlbumTracks } from '@/hooks/data/useProfile';
+import { cn } from '@/lib/utils';
 
 interface AlbumPageProps {
   albumId?: string;
@@ -367,7 +367,7 @@ export function AlbumPage({ albumId: propAlbumId }: AlbumPageProps) {
                       <Flag className="w-4 h-4 mr-2" />
                       Denunciar
                     </DropdownMenuItem>
-                  </DropdownMenuContent
+                  </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             </div>
@@ -428,4 +428,4 @@ export function AlbumPage({ albumId: propAlbumId }: AlbumPageProps) {
   );
 }
 
-import { Plus, ChevronRight, Download, Share2, Flag, Grid, List, Shuffle, Repeat, Volume2, VolumeX, Check } from 'lucide-react';
+export default AlbumPage;

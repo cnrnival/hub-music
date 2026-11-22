@@ -6,19 +6,19 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { formatRelativeTime } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
+import { formatRelativeTime } from '@/lib/utils';
 import { Play, Heart, MoreHorizontal, ChevronRight, Clock, Music, ListMusic, Compass } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
-import { ScrollArea } from '../../ui/scroll-area';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { AlbumCard } from '../../../components/album/AlbumCard';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { ArtistCard } from '../../../components/artist/ArtistCard';
-import { usePlayerStore } from '../../../state/playerStore';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { ScrollArea } from '@/ui/scroll-area';
+import { TrackCard } from '@/components/track/TrackCard';
+import { AlbumCard } from '@/components/album/AlbumCard';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { ArtistCard } from '@/components/artist/ArtistCard';
+import { usePlayerStore } from '@/state/playerStore';
 
 interface RecentItem {
   id: string;
@@ -177,4 +177,4 @@ export function ContinueListening({
   );
 }
 
-import { ChevronRight, Clock, Music, ListMusic, Compass, Play, MoreHorizontal, Heart, Share2, Plus, Download, Radio, User, Check } from 'lucide-react';
+import { ChevronRight, Clock, Music, ListMusic, Compass, Play, MoreHorizontal, Heart, Share2, Plus, Download, Radio, User, Check } from 'lucide-react';export default ContinueListening;

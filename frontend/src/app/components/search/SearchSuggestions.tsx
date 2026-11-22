@@ -9,10 +9,10 @@
 import { useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Music, Users, Film, Mic, Globe, Clock, TrendingUp, X, Search } from 'lucide-react';
-import { cn } from '../../../lib/utils';
-import { Button } from '../../components/ui/button';
-import { Avatar } from '../../components/common/Avatar';
-import { Badge } from '../../components/common/Badge';
+import { cn } from '@/lib/utils';
+import { Button } from '@/ui/button';
+import { Avatar } from '@/common/Avatar';
+import { Badge } from '@/common/Badge';
 
 interface SearchSuggestion {
   type: 'track' | 'artist' | 'album' | 'playlist' | 'show' | 'episode';

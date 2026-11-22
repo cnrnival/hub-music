@@ -8,7 +8,7 @@
 
 import { Outlet, useLocation } from 'react-router-dom';
 import { useState, useMemo } from 'react';
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 import {
   Music,
   Heart,
@@ -22,14 +22,14 @@ import {
   List,
   ChevronDown,
 } from 'lucide-react';
-import { Button } from '../../../components/ui/button';
-import { Card } from '../../../components/ui/card';
-import { Badge } from '../../../components/ui/badge';
-import { Avatar } from '../../../components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../../components/ui/dropdown-menu';
-import { useLibraryStore } from '../../../state/libraryStore';
-import { useAuth } from '../../../hooks/auth/useAuth';
-import { usePlayer } from '../../../hooks/player/usePlayer';
+import { Button } from '@/ui/button';
+import { Card } from '@/ui/card';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { useLibraryStore } from '@/state/libraryStore';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { usePlayer } from '@/hooks/player/usePlayer';
 
 const libraryTabs = [
   { id: 'tracks' as const, label: 'Faixas', icon: Music, countKey: 'tracks' },
@@ -265,4 +265,4 @@ export function LibraryHub() {
       </div>
     </div>
   );
-}
+}export default LibraryHub;

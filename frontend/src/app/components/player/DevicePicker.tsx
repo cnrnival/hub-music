@@ -7,10 +7,10 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
-import { Speaker, Headphones, Monitor, Smartphone, Check, ChevronRight } from 'lucide-react';
+import { Speaker, Headphones, Monitor, Smartphone, Check, ChevronRight, Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../ui/dropdown-menu';
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface MediaDeviceInfoExtended extends MediaDeviceInfo {
   deviceId: string;
@@ -161,9 +161,8 @@ export function DevicePicker({
             <Check className="w-4 h-4 text-primary" />
           )}
         </DropdownMenuItem>
-      </DropdownMenuContent
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 }
 
-import { Loader2 } from 'lucide-react';

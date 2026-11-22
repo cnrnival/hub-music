@@ -8,29 +8,29 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
-import { Search, X, ChevronRight, Music, User, SquarePlay, ListMusic, Mic, Filter, Loader2 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../ui/tabs';
-import { ScrollArea } from '../../ui/scroll-area';
-import { Badge } from '../../ui/badge';
-import { Skeleton } from '../../ui/skeleton';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { TrackRow } from '../../../components/track/TrackRow';
-import { ArtistCard } from '../../../components/artist/ArtistCard';
-import { ArtistRow } from '../../../components/artist/ArtistRow';
-import { AlbumCard } from '../../../components/album/AlbumCard';
-import { AlbumRow } from '../../../components/album/AlbumRow';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { PlaylistRow } from '../../../components/playlist/PlaylistRow';
-import { TrackSkeleton } from '../../../components/track/TrackSkeleton';
-import { ArtistSkeleton } from '../../../components/artist/ArtistSkeleton';
-import { AlbumSkeleton } from '../../../components/album/AlbumSkeleton';
-import { PlaylistSkeleton } from '../../../components/playlist/PlaylistSkeleton';
-import { EmptyState } from '../../../components/common/EmptyState';
-import { useSearch } from '../../../hooks/data/useSearch';
-import { useSearchStore } from '../../../state/searchStore';
-import { useLibraryStore } from '../../../state/libraryStore';
+import { Search, X, ChevronRight, Music, User, PlayCircle, ListMusic, Mic, Filter, Loader2 } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui/tabs';
+import { ScrollArea } from '@/ui/scroll-area';
+import { Badge } from '@/ui/badge';
+import { Skeleton } from '@/ui/skeleton';
+import { TrackCard } from '@/components/track/TrackCard';
+import { TrackRow } from '@/components/track/TrackRow';
+import { ArtistCard } from '@/components/artist/ArtistCard';
+import { ArtistRow } from '@/components/artist/ArtistRow';
+import { AlbumCard } from '@/components/album/AlbumCard';
+import { AlbumRow } from '@/components/album/AlbumRow';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { PlaylistRow } from '@/components/playlist/PlaylistRow';
+import { TrackSkeleton } from '@/components/track/TrackSkeleton';
+import { ArtistSkeleton } from '@/components/artist/ArtistSkeleton';
+import { AlbumSkeleton } from '@/components/album/AlbumSkeleton';
+import { PlaylistSkeleton } from '@/components/playlist/PlaylistSkeleton';
+import { EmptyState } from '@/common/EmptyState';
+import { useSearch } from '@/hooks/data/useSearch';
+import { useSearchStore } from '@/state/searchStore';
+import { useLibraryStore } from '@/state/libraryStore';
 
 type SearchTab = 'all' | 'tracks' | 'artists' | 'albums' | 'playlists' | 'shows' | 'episodes';
 
@@ -588,4 +588,4 @@ export function SearchResultsPage() {
   );
 }
 
-import { Grid, List, Loader2 } from 'lucide-react';
+import { Grid, List, Loader2 } from 'lucide-react';export default SearchResultsPage;

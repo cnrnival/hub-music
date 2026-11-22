@@ -7,14 +7,14 @@
  */
 
 import { Play, Heart, Plus, MoreHorizontal, Clock, Music, Users, Film, Mic, Globe } from 'lucide-react';
-import { cn } from '../../../lib/utils';
-import { formatDuration, formatCount } from '../../../lib/utils';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/common/Badge';
-import { Avatar } from '../../components/common/Avatar';
-import { DropdownMenu } from '../../components/common/DropdownMenu';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
+import { cn } from '@/lib/utils';
+import { formatDuration, formatCount } from '@/lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/common/Badge';
+import { Avatar } from '@/common/Avatar';
+import { DropdownMenu } from '@/common/DropdownMenu';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
 
 type SearchResultType = 'track' | 'artist' | 'album' | 'playlist' | 'show' | 'episode';
 

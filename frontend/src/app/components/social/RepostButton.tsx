@@ -8,7 +8,7 @@
 
 import { Share2 } from 'lucide-react';
 import { Button } from '../ui/button';
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface RepostButtonProps {
   isReposted: boolean;

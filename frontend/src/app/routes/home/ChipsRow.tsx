@@ -6,10 +6,10 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { ScrollArea } from '../../ui/scroll-area';
+import { Button } from '@/ui/button';
+import { ScrollArea } from '@/ui/scroll-area';
 
 interface Chip {
   id: string;
@@ -102,7 +102,7 @@ export const genreChips: Chip[] = [
   { id: 'indie', label: 'Indie', icon: <Sparkles className="w-4 h-4" /> },
   { id: 'kpop', label: 'K-Pop', icon: <Star className="w-4 h-4" /> },
   { id: 'funk', label: 'Funk', icon: <Volume2 className="w-4 h-4" /> },
-  { id: 'sertanejo', label: 'Sertanejo', icon: <HatCowboy className="w-4 h-4" /> },
+  { id: 'sertanejo', label: 'Sertanejo', icon: <Music className="w-4 h-4" /> },
   { id: 'mpb', label: 'MPB', icon: <Music2 className="w-4 h-4" /> },
   { id: 'classical', label: 'Clássica', icon: <Music3 className="w-4 h-4" /> },
 ];
@@ -111,7 +111,7 @@ export const moodChips: Chip[] = [
   { id: 'chill', label: 'Relaxar', icon: <Coffee className="w-4 h-4" /> },
   { id: 'workout', label: 'Treino', icon: <Dumbbell className="w-4 h-4" /> },
   { id: 'focus', label: 'Foco', icon: <Brain className="w-4 h-4" /> },
-  { id: 'party', label: 'Festa', icon: <GlassWater className="w-4 h-4" /> },
+  { id: 'party', label: 'Festa', icon: <Beer className="w-4 h-4" /> },
   { id: 'sleep', label: 'Dormir', icon: <Moon className="w-4 h-4" /> },
   { id: 'roadtrip', label: 'Viagem', icon: <Car className="w-4 h-4" /> },
   { id: 'romance', label: 'Romance', icon: <Heart className="w-4 h-4" /> },
@@ -142,4 +142,4 @@ export const activityChips: Chip[] = [
   { id: 'time-capsule', label: 'Cápsula do tempo' },
 ];
 
-import { Music, Mic, Guitar, Zap, Heart, Globe, Sparkles, Star, Volume2, HatCowboy, Music2, Music3, Coffee, Dumbbell, Brain, GlassWater, Moon, Car, Compass, Clock, Download, Radio, Share2, Plus, Edit, Trash2, Check } from 'lucide-react';
+import { Music, Mic, Guitar, Zap, Heart, Globe, Sparkles, Star, Volume2, Music2, Music3, Coffee, Dumbbell, Brain, CupSoda, Moon, Car, Compass, Clock, Download, Radio, Share2, Plus, Edit, Trash2, Check, Beer } from 'lucide-react';export default ChipsRow;

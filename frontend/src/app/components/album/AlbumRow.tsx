@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { formatNumber } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
+import { formatNumber } from '@/lib/utils';
 import { Play, Heart, MoreHorizontal, Music, Calendar } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
 
 interface AlbumRowProps {
   album: any;
@@ -37,7 +37,7 @@ export function AlbumRow({ album, variant = 'default', onPlay, onClick }: AlbumR
   const trackCount = album._count?.tracks || album.tracks?.length || 0;
 
   return (
-    <div className={rowClasses} onClick={onClick} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onClick?.())}>
+    <div className={rowClasses} onClick={onClick} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onClick?.()}>
       {/* Cover */}
       <div className="relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden">
         {album.coverUrl ? (
@@ -121,4 +121,3 @@ export function AlbumRow({ album, variant = 'default', onPlay, onClick }: AlbumR
   );
 }
 
-import { Heart, Plus, Share2, Edit, Trash2 } from 'lucide-react';

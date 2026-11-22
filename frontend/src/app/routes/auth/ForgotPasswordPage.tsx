@@ -8,13 +8,13 @@
 
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Loader2, Music, Sparkles, ArrowLeft, Send } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { Label } from '../../ui/label';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../ui/card';
-import { useAuth } from '../../../hooks/auth/useAuth';
-import { cn } from '../../../lib/utils';
+import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Loader2, Music, Sparkles, ArrowLeft, Send, Shield, LogIn } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
+import { Label } from '@/ui/label';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/ui/card';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { cn } from '@/lib/utils';
 
 export function ForgotPasswordPage() {
   const navigate = useNavigate();
@@ -441,4 +441,4 @@ export function ForgotPasswordPage() {
   );
 }
 
-import { Shield, Lock, CheckCircle, LogIn, Send } from 'lucide-react';
+export default ForgotPasswordPage;

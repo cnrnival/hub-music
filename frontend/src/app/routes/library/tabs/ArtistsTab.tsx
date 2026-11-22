@@ -116,4 +116,4 @@ export function ArtistsTab() {
       )}
     </div>
   );
-}
+}export default ArtistsTab;

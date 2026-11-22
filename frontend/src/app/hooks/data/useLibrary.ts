@@ -7,9 +7,9 @@
  */
 
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../../../lib/api';
-import { useLibraryStore } from '../../../state/libraryStore';
-import type { LibraryTab, LibraryFilters, SortOption } from '../../../state/libraryStore';
+import { api } from '@/lib/api';
+import { useLibraryStore } from '@/state/libraryStore';
+import type { LibraryTab, LibraryFilters, SortOption } from '@/state/libraryStore';
 
 // Query keys
 export const libraryKeys = {

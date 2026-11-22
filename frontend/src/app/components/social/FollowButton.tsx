@@ -8,7 +8,7 @@
 
 import { UserPlus, UserCheck, UserX, Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
 
 type FollowState = 'follow' | 'following' | 'requested' | 'loading';

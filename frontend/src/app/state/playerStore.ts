@@ -8,7 +8,7 @@
 
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { api } from '../../../lib/api';
+import { api } from '@/lib/api';
 import type {
   Track,
   QueuedTrack,

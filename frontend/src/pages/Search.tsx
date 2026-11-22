@@ -14,7 +14,7 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { Card } from '../components/ui/card';
-import { cn, formatNumber } from '../lib/utils';
+import { cn, formatNumber } from '@/lib/utils';
 import { Search as SearchIcon, Filter, Music, Users, ListMusic, ChevronDown, X } from 'lucide-react';
 
 export function Search() {

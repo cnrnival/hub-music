@@ -8,7 +8,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { useQuery, useDebouncedCallback } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api } from '@/lib/api';
 
 interface SearchResult {
   local: {

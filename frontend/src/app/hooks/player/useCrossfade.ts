@@ -7,7 +7,7 @@
  */
 
 import { useEffect, useRef, useCallback } from 'react';
-import { usePlayerStore } from '../../../state/playerStore';
+import { usePlayerStore } from '@/state/playerStore';
 import { useAudio } from './useAudio';
 
 interface CrossfadeState {

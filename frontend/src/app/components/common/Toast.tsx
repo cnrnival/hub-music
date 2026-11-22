@@ -9,7 +9,7 @@
 import { useState, useCallback, useEffect, createContext, useContext, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { X, CheckCircle, AlertCircle, AlertTriangle, Info } from 'lucide-react';
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 
 type ToastType = 'success' | 'error' | 'warning' | 'info' | 'default';
 

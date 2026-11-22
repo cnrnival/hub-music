@@ -116,4 +116,4 @@ export function AlbumsTab() {
       )}
     </div>
   );
-}
+}export default AlbumsTab;

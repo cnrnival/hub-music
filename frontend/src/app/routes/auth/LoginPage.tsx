@@ -8,14 +8,14 @@
 
 import { useState } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Loader2, Music, Sparkles } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { Label } from '../../ui/label';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../ui/card';
-import { Separator } from '../../ui/separator';
-import { useAuth } from '../../../hooks/auth/useAuth';
-import { cn } from '../../../lib/utils';
+import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Loader2, Music, Sparkles, Users, LogIn } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
+import { Label } from '@/ui/label';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/ui/card';
+import { Separator } from '@/ui/separator';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { cn } from '@/lib/utils';
 
 export function LoginPage() {
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ export function LoginPage() {
             </div>
             <div className="flex items-center justify-center gap-3 p-4 bg-background/50 rounded-xl border border-border-primary">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Waveform className="w-5 h-5 text-primary" />
+                <Music className="w-5 h-5 text-primary" />
               </div>
               <div className="text-left">
                 <p className="font-medium text-text-primary">Waveform & Letras</p>
@@ -133,7 +133,7 @@ export function LoginPage() {
                   className="h-11 gap-1"
                   title="Continuar com Spotify"
                 >
-                  <Spotify className="w-5 h-5" />
+                  <Music className="w-5 h-5 text-green-400" />
                 </Button>
                 <Button
                   variant="outline"
@@ -142,7 +142,7 @@ export function LoginPage() {
                   className="h-11 gap-1"
                   title="Continuar com Apple"
                 >
-                  <Apple className="w-5 h-5" />
+                  <Music className="w-5 h-5 text-purple-400" />
                 </Button>
                 <Button
                   variant="outline"
@@ -281,4 +281,4 @@ export function LoginPage() {
   );
 }
 
-import { Users, Waveform, Spotify, Apple, LogIn, Link } from 'lucide-react';
+export default LoginPage;

@@ -7,14 +7,16 @@
  */
 
 import { useState } from 'react';
-import { Clock, Heart, MoreHorizontal, Flag, Reply, Send } from 'lucide-react';
-import { Button } from '../ui/button';
-import { Avatar } from '../ui/avatar';
-import { Badge } from '../ui/badge';
-import { ScrollArea } from '../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../ui/dropdown-menu';
-import { formatRelativeTime, formatDuration } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { Clock, Heart, MoreHorizontal, Flag, Reply, Send, Check, MessageSquare, X } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Avatar } from '@/ui/avatar';
+import { Badge } from '@/ui/badge';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/ui/tooltip';
+import { Input } from '@/ui/input';
+import { formatRelativeTime, formatDuration } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface Comment {
   id: string;
@@ -136,7 +138,7 @@ export function CommentSection({
                 <Flag className="w-4 h-4 mr-2" />
                 Denunciar
               </DropdownMenuItem>
-            </DropdownMenuContent
+            </DropdownMenuContent>
           </DropdownMenu>
         </div>
 
@@ -228,9 +230,6 @@ export function CommentSection({
   );
 }
 
-import { Input } from '../ui/input';
-import { Tooltip, TooltipTrigger, TooltipContent } from '../ui/tooltip';
-import { Check, MessageSquare } from 'lucide-react';
 
 interface CommentInputProps {
   onSubmit: (content: string, timestamp?: number) => void;

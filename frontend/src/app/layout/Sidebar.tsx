@@ -8,7 +8,7 @@
 
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { cn } from '../../lib/utils';
+import { cn } from '@/lib/utils';
 import {
   Home,
   Search,
@@ -27,10 +27,10 @@ import {
   Menu,
   X,
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Avatar } from '../components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../components/ui/dropdown-menu';
-import { useAuth } from '../../hooks/useAuth';
+import { Button } from '@/ui/button';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/ui/dropdown-menu';
+import { useAuth } from '@/hooks/auth/useAuth';
 
 const mainNavItems = [
   { path: '/', icon: Home, label: 'Início', tooltip: 'Início' },

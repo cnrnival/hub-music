@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { Users, UserPlus, Spotify, Apple, Search, Check, Plus, MoreHorizontal } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
-import { ScrollArea } from '../../ui/scroll-area';
+import { cn } from '@/lib/utils';
+import { Users, UserPlus, Music, Apple, Search, Check, Plus, MoreHorizontal } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { ScrollArea } from '@/ui/scroll-area';
 
 interface FriendSuggestion {
   id: string;
@@ -75,7 +75,7 @@ export function SocialPrompting({
             disabled={!onConnectSpotify}
           >
             <div className="w-10 h-10 rounded-lg bg-green-600/20 flex items-center justify-center">
-              <Spotify className="w-5 h-5 text-green-400" />
+              <Music className="w-5 h-5 text-green-400" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-text-primary">Conectar Spotify</p>
@@ -92,7 +92,7 @@ export function SocialPrompting({
             disabled={!onConnectApple}
           >
             <div className="w-10 h-10 rounded-lg bg-purple-600/20 flex items-center justify-center">
-              <Apple className="w-5 h-5 text-purple-400" />
+              <Music className="w-5 h-5 text-purple-400" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-text-primary">Conectar Apple Music</p>
@@ -189,4 +189,4 @@ export function SocialPrompting({
   );
 }
 
-import { ChevronRight, Users, UserPlus, Spotify, Apple, Search, Check, Plus, MoreHorizontal, User } from 'lucide-react';
+import { ChevronRight, Users, UserPlus, Music, Apple, Search, Check, Plus, MoreHorizontal, User } from 'lucide-react';export default SocialPrompting;

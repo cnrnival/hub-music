@@ -10,8 +10,8 @@ import { useState } from 'react';
 import { Clock, Send, X } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
-import { formatDuration } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { formatDuration } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface CommentInputProps {
   onSubmit: (content: string, timestamp?: number) => void;

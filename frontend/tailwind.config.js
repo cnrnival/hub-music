@@ -22,19 +22,24 @@ export default {
           card: '#1A1A1A',
           hover: '#252525'
         },
-        text: {
-          primary: '#FFFFFF',
-          secondary: '#B3B3B3',
-          muted: '#727272',
-          inverse: '#000000'
-        },
-        border: {
-          DEFAULT: '#333333',
-          light: '#404040'
-        },
+        // Aliases for CSS @apply directives
+        card: '#1A1A1A',
+        'card-hover': '#222222',
+        'border-primary': '#333333',
+        'border-light': '#404040',
+        'border-focus': '#FF4081',
+        'text-primary': '#FFFFFF',
+        'text-secondary': '#B3B3B3',
+        'text-muted': '#727272',
+        'text-inverse': '#000000',
         success: '#4CAF50',
+        'success-bg': '#4CAF5020',
         warning: '#FF9800',
+        'warning-bg': '#FF980020',
         error: '#F44336',
+        'error-bg': '#F4433620',
+        info: '#00B0FF',
+        'info-bg': '#00B0FF20',
         waveform: {
           played: '#FF4081',
           unplayed: '#404040',

@@ -6,20 +6,20 @@
  * @languages pt-BR / en-US
  */
 
-import { useState } from 'react';
-import { Clock, Heart, Share2, MessageSquare, Music, User, Users, Play, MoreHorizontal, ChevronRight } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Avatar } from '../../ui/avatar';
-import { Badge } from '../../ui/badge';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { ArtistCard } from '../../../components/artist/ArtistCard';
-import { formatRelativeTime, formatNumber } from '../../../lib/utils';
-import { useFeed } from '../../../hooks/data/useSocial';
-import { usePlayerStore } from '../../../state/playerStore';
-import { cn } from '../../../lib/utils';
+import { useState, useEffect, useNavigate } from 'react';
+import { Clock, Heart, Share2, MessageSquare, Music, User, Users, Play, MoreHorizontal, ChevronRight, Filter, ChevronDown, Search, Flag, Check, UserPlus, ListMusic } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Avatar } from '@/ui/avatar';
+import { Badge } from '@/ui/badge';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { TrackCard } from '@/components/track/TrackCard';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { ArtistCard } from '@/components/artist/ArtistCard';
+import { formatRelativeTime, formatNumber } from '@/lib/utils';
+import { useFeed } from '@/hooks/data/useSocial';
+import { usePlayerStore } from '@/state/playerStore';
+import { cn } from '@/lib/utils';
 
 interface FeedActivity {
   id: string;
@@ -184,7 +184,8 @@ export function BuddyFeedPage() {
                 <DropdownMenuItem onClick={() => setFilter('all')}>Todos</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setFilter('following')}>Seguindo</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setFilter('friends')}>Amigos</DropdownMenuItem>
-              </DropdownMenuContent            </DropdownMenu>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Activities */}
@@ -278,7 +279,7 @@ export function BuddyFeedPage() {
                           <DropdownMenuItem>
                             <Flag className="w-4 h-4 mr-2" /> Denunciar atividade
                           </DropdownMenuItem>
-                        </DropdownMenuContent
+                        </DropdownMenuContent>
                       </DropdownMenu>
                     </div>
                   </div>
@@ -311,5 +312,4 @@ export function BuddyFeedPage() {
   );
 }
 
-import { useEffect, useNavigate } from 'react';
-import { Filter, ChevronDown, Search, Flag, Check, UserPlus, ListMusic, Users, Navigate } from 'lucide-react';
+export default BuddyFeedPage;

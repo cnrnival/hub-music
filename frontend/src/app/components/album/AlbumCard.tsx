@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { formatNumber } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
+import { formatNumber } from '@/lib/utils';
 import { Play, Heart, MoreHorizontal, Music, Calendar } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
 
 interface AlbumCardProps {
   album: any;
@@ -35,7 +35,7 @@ export function AlbumCard({ album, onPlay, onClick }: AlbumCardProps) {
   const trackCount = album._count?.tracks || album.tracks?.length || 0;
 
   return (
-    <article className="card-interactive group" onClick={handleClick} tabIndex={0} role="button" onKeyDown={(e) => e.key === 'Enter' && onClick?.())}>
+    <article className="card-interactive group" onClick={handleClick} tabIndex={0} role="button" onKeyDown={(e) => e.key === 'Enter' && onClick?.()}>
       {/* Cover */}
       <div className="relative aspect-square rounded-xl overflow-hidden">
         {album.coverUrl ? (
@@ -153,4 +153,3 @@ export function AlbumCard({ album, onPlay, onClick }: AlbumCardProps) {
   );
 }
 
-import { Heart, Plus, Share2, Edit, Trash2, Calendar } from 'lucide-react';

@@ -7,13 +7,13 @@
  */
 
 import { Play, Heart, Plus, MoreHorizontal, Clock, Mic, Check, Download } from 'lucide-react';
-import { cn } from '../../../lib/utils';
-import { formatDuration, formatDate } from '../../../lib/utils';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/common/Badge';
-import { DropdownMenu } from '../../components/common/DropdownMenu';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
+import { cn } from '@/lib/utils';
+import { formatDuration, formatDate } from '@/lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/common/Badge';
+import { DropdownMenu } from '@/common/DropdownMenu';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
 
 interface Episode {
   id: string;

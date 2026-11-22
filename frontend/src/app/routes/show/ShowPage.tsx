@@ -9,17 +9,17 @@
 import { useParams } from 'react-router-dom';
 import { Play, Plus, Heart, Share2, MoreHorizontal, ChevronDown, Clock, Mic } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
-import { formatDuration, formatCount, formatDate } from '../../../lib/utils';
-import { api } from '../../../lib/api';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/common/Badge';
-import { Avatar } from '../../components/common/Avatar';
-import { DropdownMenu } from '../../components/common/DropdownMenu';
-import { TrackRow } from '../../components/track/TrackRow';
-import { EmptyState } from '../../components/common/EmptyState';
-import { Skeleton } from '../../components/ui/skeleton';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
+import { formatDuration, formatCount, formatDate } from '@/lib/utils';
+import { api } from '@/lib/api';
+import { Button } from '@/ui/button';
+import { Badge } from '@/common/Badge';
+import { Avatar } from '@/common/Avatar';
+import { DropdownMenu } from '@/common/DropdownMenu';
+import { TrackRow } from '@/components/track/TrackRow';
+import { EmptyState } from '@/common/EmptyState';
+import { Skeleton } from '@/ui/skeleton';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
 
 interface Show {
   id: string;
@@ -325,7 +325,7 @@ function EpisodeRow({ episode, show, index, onPlay, onAddToQueue }: EpisodeRowPr
   );
 }
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 import { CheckCircle } from 'lucide-react';
 
 function ShowSkeleton() {
@@ -364,4 +364,4 @@ function ShowNotFound() {
       />
     </div>
   );
-}
+}export default ShowPage;

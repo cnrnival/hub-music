@@ -13,25 +13,25 @@ import {
   Music, User, Calendar, ListMusic, Heart as HeartIcon, Edit, Trash2,
   Download, Plus, X, GripVertical, Save, ArrowLeft, Image, Camera
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { Input } from '../../ui/input';
-import { Textarea } from '../../ui/textarea';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { Tooltip, TooltipTrigger, TooltipContent } from '../../ui/tooltip';
-import { Separator } from '../../ui/separator';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from '../../ui/dialog';
-import { Label } from '../../ui/label';
-import { Switch } from '../../ui/switch';
-import { TrackRow } from '../../../components/track/TrackRow';
-import { TrackSkeleton } from '../../../components/track/TrackSkeleton';
-import { usePlayerStore } from '../../../state/playerStore';
-import { usePlaylist, usePlaylistTracks, useCreatePlaylist, useUpdatePlaylist, useAddPlaylistTracks, useRemovePlaylistTracks, useReorderPlaylistTracks, useUploadPlaylistCover } from '../../../hooks/data/usePlaylists';
-import { useSearch } from '../../../hooks/data/useSearch';
-import { formatDuration, formatNumber } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { Input } from '@/ui/input';
+import { Textarea } from '@/ui/textarea';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/ui/tooltip';
+import { Separator } from '@/ui/separator';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogTrigger } from '@/ui/dialog';
+import { Label } from '@/ui/label';
+import { Switch } from '@/ui/switch';
+import { TrackRow } from '@/components/track/TrackRow';
+import { TrackSkeleton } from '@/components/track/TrackSkeleton';
+import { usePlayerStore } from '@/state/playerStore';
+import { usePlaylist, usePlaylistTracks, useCreatePlaylist, useUpdatePlaylist, useAddPlaylistTracks, useRemovePlaylistTracks, useReorderPlaylistTracks, useUploadPlaylistCover } from '@/hooks/data/usePlaylists';
+import { useSearch } from '@/hooks/data/useSearch';
+import { formatDuration, formatNumber } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 // Drag and drop imports
 import {
@@ -591,4 +591,4 @@ export function PlaylistEditor({ playlistId: propPlaylistId }: PlaylistEditorPro
   );
 }
 
-import { Search, Loader2 } from 'lucide-react';
+import { Search, Loader2 } from 'lucide-react';export default PlaylistEditor;

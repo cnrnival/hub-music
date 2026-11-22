@@ -16,11 +16,11 @@ import {
   Plus,
   Menu,
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Avatar } from '../components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../components/ui/dropdown-menu';
-import { useAuth } from '../../hooks/useAuth';
-import { SearchInput } from '../components/search/SearchInput';
+import { Button } from '@/ui/button';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { SearchInput } from '@/components/search/SearchInput';
 
 interface TopBarProps {
   onMenuClick: () => void;

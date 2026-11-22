@@ -7,7 +7,7 @@
  */
 
 import { useCallback, useMemo } from 'react';
-import { usePlayerStore } from '../../../state/playerStore';
+import { usePlayerStore } from '@/state/playerStore';
 import type { Track } from '../../../types/api';
 
 interface QueuedTrack {

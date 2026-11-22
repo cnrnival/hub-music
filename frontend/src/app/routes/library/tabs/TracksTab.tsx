@@ -128,4 +128,4 @@ export function TracksTab() {
       )}
     </div>
   );
-}
+}export default TracksTab;

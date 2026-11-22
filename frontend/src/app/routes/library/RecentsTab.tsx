@@ -9,21 +9,21 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Play, Heart, Clock, Calendar, Music, Film, Mic, MoreHorizontal, ChevronDown, Filter } from 'lucide-react';
-import { api } from '../../../lib/api';
-import { formatDuration, formatDate, formatRelativeTime } from '../../../lib/utils';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/common/Badge';
-import { DropdownMenu } from '../../components/common/DropdownMenu';
-import { Skeleton } from '../../components/ui/skeleton';
-import { EmptyState } from '../../components/common/EmptyState';
-import { TrackRow } from '../../components/track/TrackRow';
-import { AlbumRow } from '../../components/album/AlbumRow';
-import { ArtistRow } from '../../components/artist/ArtistRow';
-import { PlaylistRow } from '../../components/playlist/PlaylistRow';
-import { EpisodeRow } from '../../components/episode/EpisodeRow';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
-import { useLibraryStore } from '../../../state/libraryStore';
+import { api } from '@/lib/api';
+import { formatDuration, formatDate, formatRelativeTime } from '@/lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/common/Badge';
+import { DropdownMenu } from '@/common/DropdownMenu';
+import { Skeleton } from '@/ui/skeleton';
+import { EmptyState } from '@/common/EmptyState';
+import { TrackRow } from '@/components/track/TrackRow';
+import { AlbumRow } from '@/components/album/AlbumRow';
+import { ArtistRow } from '@/components/artist/ArtistRow';
+import { PlaylistRow } from '@/components/playlist/PlaylistRow';
+import { EpisodeRow } from '@/components/episode/EpisodeRow';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
+import { useLibraryStore } from '@/state/libraryStore';
 
 type RecentItemType = 'track' | 'album' | 'artist' | 'playlist' | 'episode' | 'show';
 
@@ -524,8 +524,8 @@ function ShowRowContent({ show }: { show: RecentItem['show'] }) {
 }
 
 import { Plus } from 'lucide-react';
-import { formatCount } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { formatCount } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 function RecentsSkeleton() {
   return (
@@ -574,4 +574,4 @@ function RecentsError({ onRetry }: { onRetry: () => void }) {
       />
     </div>
   );
-}
+}export default RecentsTab;

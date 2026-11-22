@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { formatNumber } from '../../../lib/utils';
-import { Play, Heart, MoreHorizontal, User, UserPlus, Music, Heart as HeartIcon } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
+import { cn } from '@/lib/utils';
+import { formatNumber } from '@/lib/utils';
+import { Play, Heart, MoreHorizontal, User, UserPlus, Music, Check, Share2 } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
 
 interface ArtistCardProps {
   artist: any;
@@ -32,7 +32,7 @@ export function ArtistCard({ artist, onPlay, onClick }: ArtistCardProps) {
   };
 
   return (
-    <article className="card-interactive group" onClick={handleClick} tabIndex={0} role="button" onKeyDown={(e) => e.key === 'Enter' && onClick?.())}>
+    <article className="card-interactive group" onClick={handleClick} tabIndex={0} role="button" onKeyDown={(e) => e.key === 'Enter' && onClick?.()}>
       {/* Avatar */}
       <div className="relative aspect-square rounded-full overflow-hidden mb-3">
         {artist.avatarUrl ? (
@@ -76,7 +76,7 @@ export function ArtistCard({ artist, onPlay, onClick }: ArtistCardProps) {
         {artist._count?.followers !== undefined && (
           <p className="text-text-secondary text-sm">
             {formatNumber(artist._count.followers)} ouvintes
-          )}
+          </p>
         )}
 
         {/* Actions */}
@@ -107,11 +107,11 @@ export function ArtistCard({ artist, onPlay, onClick }: ArtistCardProps) {
               <DropdownMenuItem>
                 <Share2 className="w-4 h-4 mr-2" /> Compartilhar
               </DropdownMenuItem>
-            </DropdownMenuContent          </DropdownMenu>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </article>
   );
 }
 
-import { User, Check, Share2 } from 'lucide-react';

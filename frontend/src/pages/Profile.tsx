@@ -9,9 +9,9 @@
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useAuth } from '../hooks/useAuth';
-import { api } from '../lib/api';
-import { formatNumber, formatRelativeTime, getInitials } from '../lib/utils';
-import { cn } from '../lib/utils';
+import { api } from '@/lib/api';
+import { formatNumber, formatRelativeTime, getInitials } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { Avatar } from '../components/ui/avatar';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';

@@ -7,8 +7,8 @@
  */
 
 import { useEffect, useCallback, useRef } from 'react';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
 
 interface ShortcutMap {
   [key: string]: () => void;

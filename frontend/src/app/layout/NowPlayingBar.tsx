@@ -7,7 +7,7 @@
  */
 
 import { useEffect } from 'react';
-import { cn, formatDuration } from '../../lib/utils';
+import { cn, formatDuration } from '@/lib/utils';
 import {
   Play,
   Pause,
@@ -23,10 +23,10 @@ import {
   Maximize2,
   Minimize2,
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { MiniWaveform } from '../components/player/MiniWaveform';
-import { usePlayerStore } from '../../state/playerStore';
-import { useUIStore } from '../../state/uiStore';
+import { Button } from '@/ui/button';
+import { MiniWaveform } from '@/components/player/MiniWaveform';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
 
 export function NowPlayingBar() {
   const {

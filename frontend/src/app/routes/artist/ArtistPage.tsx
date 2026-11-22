@@ -11,24 +11,26 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {
   Play, Pause, Heart, Share2, MoreHorizontal, UserPlus, UserCheck,
   Music, Calendar, Users, Clock, ChevronRight, Check, Download,
-  Radio, ExternalLink
+  Radio, ExternalLink, Home, PlayCircle, ListMusic, Grid, List,
+  Shuffle, Flag
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../ui/tabs';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '../../ui/dropdown-menu';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { AlbumCard } from '../../../components/album/AlbumCard';
-import { ArtistCard } from '../../../components/artist/ArtistCard';
-import { TrackRow } from '../../../components/track/TrackRow';
-import { AlbumRow } from '../../../components/album/AlbumRow';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { formatNumber, formatDuration, formatRelativeTime } from '../../../lib/utils';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useArtist, useArtistTopTracks, useArtistAlbums, useArtistRelated, useFollowArtist } from '../../../hooks/data/useProfile';
-import { cn } from '../../../lib/utils';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/ui/tooltip';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui/tabs';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuLabel } from '@/ui/dropdown-menu';
+import { TrackCard } from '@/components/track/TrackCard';
+import { AlbumCard } from '@/components/album/AlbumCard';
+import { ArtistCard } from '@/components/artist/ArtistCard';
+import { TrackRow } from '@/components/track/TrackRow';
+import { AlbumRow } from '@/components/album/AlbumRow';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { formatNumber, formatDuration, formatRelativeTime } from '@/lib/utils';
+import { usePlayerStore } from '@/state/playerStore';
+import { useArtist, useArtistTopTracks, useArtistAlbums, useArtistRelated, useFollowArtist } from '@/hooks/data/useProfile';
+import { cn } from '@/lib/utils';
 
 interface ArtistPageProps {
   artistId?: string;
@@ -257,7 +259,7 @@ export function ArtistPage({ artistId: propArtistId }: ArtistPageProps) {
                     <DropdownMenuItem>
                       <Flag className="w-4 h-4 mr-2" /> Denunciar
                     </DropdownMenuItem>
-                  </DropdownMenuContent
+                  </DropdownMenuContent>
                 </DropdownMenu>
               </div>
             </div>
@@ -518,4 +520,4 @@ export function ArtistPage({ artistId: propArtistId }: ArtistPageProps) {
   );
 }
 
-import { Home, User, SquarePlay, ListMusic, Users, ChevronRight, Grid, List, Shuffle, Radio, ExternalLink, Flag, Share2, Download, Tooltip, TooltipTrigger, TooltipContent, Play, UserPlus, UserCheck, MoreHorizontal, Check } from 'lucide-react';
+export default ArtistPage;

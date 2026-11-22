@@ -116,4 +116,4 @@ export function RecentsTab() {
       )}
     </div>
   );
-}
+}export default RecentsTab;

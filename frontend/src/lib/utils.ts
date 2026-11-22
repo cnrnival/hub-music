@@ -45,6 +45,10 @@ export function formatNumber(num: number): string {
   return num.toString();
 }
 
+export function formatCount(num: number): string {
+  return formatNumber(num);
+}
+
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString('pt-BR', {

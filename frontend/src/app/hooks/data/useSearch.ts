@@ -7,9 +7,9 @@
  */
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../../../lib/api';
-import { useSearchStore } from '../../../state/searchStore';
-import type { SearchSuggestion, TrendingItem } from '../../../state/searchStore';
+import { api } from '@/lib/api';
+import { useSearchStore } from '@/state/searchStore';
+import type { SearchSuggestion, TrendingItem } from '@/state/searchStore';
 
 // Query keys
 export const searchKeys = {

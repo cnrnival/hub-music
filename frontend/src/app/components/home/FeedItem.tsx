@@ -7,14 +7,14 @@
  */
 
 import { Play, Heart, Repeat, Share2, MoreHorizontal, Clock, Calendar, Music, Users, Film, Mic, Globe } from 'lucide-react';
-import { cn } from '../../../lib/utils';
-import { formatRelativeTime, formatDuration } from '../../../lib/utils';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/common/Badge';
-import { Avatar } from '../../components/common/Avatar';
-import { DropdownMenu } from '../../components/common/DropdownMenu';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
+import { cn } from '@/lib/utils';
+import { formatRelativeTime, formatDuration } from '@/lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/common/Badge';
+import { Avatar } from '@/common/Avatar';
+import { DropdownMenu } from '@/common/DropdownMenu';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
 
 type FeedItemType = 'track' | 'album' | 'playlist' | 'artist' | 'show' | 'episode' | 'activity';
 

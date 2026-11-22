@@ -8,9 +8,9 @@
 
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
-import { getErrorMessage } from '../lib/utils';
-import { cn } from '../lib/utils';
+import { api } from '@/lib/api';
+import { getErrorMessage } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card } from '../components/ui/card';

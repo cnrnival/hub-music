@@ -8,9 +8,9 @@
 import { useState, useRef } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import { api } from '../lib/api';
-import { formatFileSize, getErrorMessage } from '../lib/utils';
-import { cn } from '../lib/utils';
+import { api } from '@/lib/api';
+import { formatFileSize, getErrorMessage } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/input';

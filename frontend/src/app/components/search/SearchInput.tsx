@@ -9,11 +9,11 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { Search, X, Clock, TrendingUp, Keyboard, Command } from 'lucide-react';
 import { createPortal } from 'react-dom';
-import { cn } from '../../../lib/utils';
-import { useDebouncedCallback } from '../../../hooks/ui/useDebounce';
-import { useKeyboardShortcuts } from '../../../hooks/ui/useKeyboardShortcuts';
-import { api } from '../../../lib/api';
-import { useSearchStore } from '../../../state/searchStore';
+import { cn } from '@/lib/utils';
+import { useDebouncedCallback } from '@/hooks/ui/useDebounce';
+import { useKeyboardShortcuts } from '@/hooks/ui/useKeyboardShortcuts';
+import { api } from '@/lib/api';
+import { useSearchStore } from '@/state/searchStore';
 
 interface SearchInputProps {
   value?: string;

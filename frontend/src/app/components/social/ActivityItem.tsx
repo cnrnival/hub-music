@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { Heart, Share2, UserPlus, Music, ListMusic, User, Clock, MoreHorizontal, Play, ChevronRight } from 'lucide-react';
+import { Heart, Share2, UserPlus, Music, ListMusic, User, Clock, MoreHorizontal, Play, ChevronRight, MessageSquare, SquarePlay, Check, Flag } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Avatar } from '../ui/avatar';
 import { Badge } from '../ui/badge';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../ui/dropdown-menu';
-import { formatRelativeTime } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { formatRelativeTime } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 type ActivityType = 'like' | 'repost' | 'follow' | 'playlist_create' | 'track_upload' | 'comment';
 
@@ -169,7 +169,7 @@ export function ActivityItem({
                 <Flag className="w-4 h-4 mr-2" />
                 Denunciar
               </DropdownMenuItem>
-            </DropdownMenuContent
+            </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
@@ -177,4 +177,3 @@ export function ActivityItem({
   );
 }
 
-import { MessageSquare, SquarePlay, Check, Flag, User } from 'lucide-react';

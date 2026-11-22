@@ -7,7 +7,7 @@
  */
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../../../lib/api';
+import { api } from '@/lib/api';
 
 // Query keys
 export const playlistKeys = {
@@ -111,6 +111,18 @@ export function usePlaylistTracks(playlistId: string | undefined, params?: { pag
     queryKey: playlistKeys.tracks(playlistId!),
     queryFn: async () => {
       const response = await api.axios.get(`/playlists/${playlistId}/tracks`, { params });
+      return response.data as PlaylistTracksResponse;
+    },
+    enabled: enabled && !!playlistId,
+    staleTime: 1000 * 60 * 2,
+  });
+}
+
+export function usePlaylistTracksInfinite(playlistId: string | undefined, enabled = true) {
+  return useQuery({
+    queryKey: [...playlistKeys.tracks(playlistId!), 'infinite'],
+    queryFn: async () => {
+      const response = await api.axios.get(`/playlists/${playlistId}/tracks`, { params: { limit: 50 } });
       return response.data as PlaylistTracksResponse;
     },
     enabled: enabled && !!playlistId,
@@ -275,6 +287,75 @@ export function useReorderPlaylistTracks() {
     },
     onSettled: (data, error, { playlistId }) => {
       queryClient.invalidateQueries({ queryKey: playlistKeys.tracks(playlistId) });
+      queryClient.invalidateQueries({ queryKey: playlistKeys.detail(playlistId) });
+    },
+  });
+}
+
+export function useAddPlaylistTracks() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ playlistId, trackIds }: { playlistId: string; trackIds: string[] }) =>
+      api.addTracksToPlaylist(playlistId, trackIds),
+    onMutate: async ({ playlistId, trackIds }) => {
+      await queryClient.cancelQueries({ queryKey: playlistKeys.tracks(playlistId) });
+      const previous = queryClient.getQueryData<PlaylistTracksResponse>(playlistKeys.tracks(playlistId));
+
+      // Optimistically add tracks (would need track details)
+      return { previous };
+    },
+    onError: (err, { playlistId }, context) => {
+      if (context?.previous) {
+        queryClient.setQueryData(playlistKeys.tracks(playlistId), context.previous);
+      }
+    },
+    onSettled: (data, error, { playlistId }) => {
+      queryClient.invalidateQueries({ queryKey: playlistKeys.tracks(playlistId) });
+      queryClient.invalidateQueries({ queryKey: playlistKeys.detail(playlistId) });
+    },
+  });
+}
+
+export function useRemovePlaylistTracks() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ playlistId, trackIds }: { playlistId: string; trackIds: string[] }) =>
+      api.removeTracksFromPlaylist(playlistId, trackIds),
+    onMutate: async ({ playlistId, trackIds }) => {
+      await queryClient.cancelQueries({ queryKey: playlistKeys.tracks(playlistId) });
+      const previous = queryClient.getQueryData<PlaylistTracksResponse>(playlistKeys.tracks(playlistId));
+
+      queryClient.setQueryData<PlaylistTracksResponse>(playlistKeys.tracks(playlistId), (old) => {
+        if (!old) return old;
+        return {
+          ...old,
+          tracks: old.tracks.filter((t) => !trackIds.includes(t.trackId)),
+        };
+      });
+
+      return { previous };
+    },
+    onError: (err, { playlistId }, context) => {
+      if (context?.previous) {
+        queryClient.setQueryData(playlistKeys.tracks(playlistId), context.previous);
+      }
+    },
+    onSettled: (data, error, { playlistId }) => {
+      queryClient.invalidateQueries({ queryKey: playlistKeys.tracks(playlistId) });
+      queryClient.invalidateQueries({ queryKey: playlistKeys.detail(playlistId) });
+    },
+  });
+}
+
+export function useUploadPlaylistCover() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ playlistId, file }: { playlistId: string; file: File }) =>
+      api.uploadPlaylistCover(playlistId, file),
+    onSuccess: (data, { playlistId }) => {
       queryClient.invalidateQueries({ queryKey: playlistKeys.detail(playlistId) });
     },
   });

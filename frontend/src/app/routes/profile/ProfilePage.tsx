@@ -13,18 +13,18 @@ import {
   Settings, Edit, MoreHorizontal, ChevronRight, Share2,
   Calendar, Music as MusicIcon, Clock, Globe
 } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../ui/tabs';
-import { ScrollArea } from '../../ui/scroll-area';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
-import { TrackCard } from '../../../components/track/TrackCard';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { ArtistCard } from '../../../components/artist/ArtistCard';
-import { useProfile, useFollowUser, useUserPlaylists, useUserTracks, useUserLikes } from '../../../hooks/data/useProfile';
-import { formatNumber, formatRelativeTime } from '../../../lib/utils';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui/tabs';
+import { ScrollArea } from '@/ui/scroll-area';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { TrackCard } from '@/components/track/TrackCard';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { ArtistCard } from '@/components/artist/ArtistCard';
+import { useProfile, useFollowUser, useUserPlaylists, useUserTracks, useUserLikes } from '@/hooks/data/useProfile';
+import { formatNumber, formatRelativeTime } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface ProfilePageProps {
   username?: string;
@@ -388,4 +388,4 @@ export function ProfilePage({ username: propUsername }: ProfilePageProps) {
 }
 
 import { Check, UserCheck, Loader2, Share2, Flag } from 'lucide-react';
-import { Tooltip } from '../../ui/tooltip';
+import { Tooltip } from '@/ui/tooltip';export default ProfilePage;

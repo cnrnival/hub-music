@@ -6,7 +6,7 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface AlbumSkeletonProps {
   variant?: 'default' | 'compact';

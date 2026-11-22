@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Hub Music - App Component
  * Componente raiz: rotas, provedores de autenticação, player, React Query
  * Root component: routes, auth and player providers, React Query
@@ -9,13 +9,31 @@
 import React from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { AuthProvider } from './app/hooks/auth/useAuth';
-import { PlayerProvider } from './app/hooks/player/usePlayer';
+import { PlayerProvider } from './hooks/usePlayer';
 import { PanelSection } from './app/layout/PanelSection';
 import { initializePlayerSnapshot } from './app/hooks/player/usePlayerSnapshot';
 import { useAuth } from './app/hooks/auth/useAuth';
 import { useEffect } from 'react';
+import Home from './app/routes/home/HomePage';
+import SearchPage from './app/routes/search/SearchPage';
+import SearchResultsPage from './app/routes/search/SearchResultsPage';
+import TrackPage from './app/routes/track/TrackPage';
+import AlbumPage from './app/routes/album/AlbumPage';
+import ArtistPage from './app/routes/artist/ArtistPage';
+import PlaylistPage from './app/routes/playlist/PlaylistPage';
+import PlaylistEditor from './app/routes/playlist/PlaylistEditor';
+import ShowPage from './app/routes/show/ShowPage';
+import EpisodePage from './app/routes/episode/EpisodePage';
+import LibraryHub from './app/routes/library/LibraryHub';
+import ProfilePage from './app/routes/profile/ProfilePage';
+import SettingsPage from './app/routes/profile/SettingsPage';
+import LoginPage from './app/routes/auth/LoginPage';
+import RegisterPage from './app/routes/auth/RegisterPage';
+import ForgotPasswordPage from './app/routes/auth/ForgotPasswordPage';
+import BuddyFeedPage from './app/routes/social/BuddyFeedPage';
+import BlendPage from './app/routes/social/BlendPage';
+import NotFoundPage from './app/routes/NotFoundPage';
 
 // Create QueryClient
 const queryClient = new QueryClient({
@@ -31,40 +49,6 @@ const queryClient = new QueryClient({
     },
   },
 });
-
-// Lazy load route components for code splitting
-const Home = () => import('./app/routes/home/HomePage').then(m => m.HomePage);
-const SearchPage = () => import('./app/routes/search/SearchPage').then(m => m.SearchPage);
-const SearchResultsPage = () => import('./app/routes/search/SearchResultsPage').then(m => m.SearchResultsPage);
-const TrackPage = () => import('./app/routes/track/TrackPage').then(m => m.TrackPage);
-const AlbumPage = () => import('./app/routes/album/AlbumPage').then(m => m.AlbumPage);
-const ArtistPage = () => import('./app/routes/artist/ArtistPage').then(m => m.ArtistPage);
-const PlaylistPage = () => import('./app/routes/playlist/PlaylistPage').then(m => m.PlaylistPage);
-const PlaylistEditor = () => import('./app/routes/playlist/PlaylistEditor').then(m => m.PlaylistEditor);
-const ShowPage = () => import('./app/routes/show/ShowPage').then(m => m.ShowPage);
-const EpisodePage = () => import('./app/routes/episode/EpisodePage').then(m => m.EpisodePage);
-const LibraryHub = () => import('./app/routes/library/LibraryHub').then(m => m.LibraryHub);
-const ProfilePage = () => import('./app/routes/profile/ProfilePage').then(m => m.ProfilePage);
-const SettingsPage = () => import('./app/routes/profile/SettingsPage').then(m => m.SettingsPage);
-const LoginPage = () => import('./app/routes/auth/LoginPage').then(m => m.LoginPage);
-const RegisterPage = () => import('./app/routes/auth/RegisterPage').then(m => m.RegisterPage);
-const ForgotPasswordPage = () => import('./app/routes/auth/ForgotPasswordPage').then(m => m.ForgotPasswordPage);
-const BuddyFeedPage = () => import('./app/routes/social/BuddyFeedPage').then(m => m.BuddyFeedPage);
-const BlendPage = () => import('./app/routes/social/BlendPage').then(m => m.BlendPage);
-const NotFoundPage = () => import('./app/routes/NotFoundPage').then(m => m.NotFoundPage);
-
-// Suspense wrapper for lazy routes
-function LazyRoute({ children }: { children: React.ReactNode }) {
-  return (
-    <React.Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-      </div>
-    }>
-      {children}
-    </React.Suspense>
-  );
-}
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -100,18 +84,15 @@ function AppRoutes() {
       {/* Public routes */}
       <Route path="/login" element={
         <PublicRoute>
-          <LazyRoute><LoginPage /></LazyRoute>
-        </PublicRoute>
+          <LoginPage />        </PublicRoute>
       } />
       <Route path="/register" element={
         <PublicRoute>
-          <LazyRoute><RegisterPage /></LazyRoute>
-        </PublicRoute>
+          <RegisterPage />        </PublicRoute>
       } />
       <Route path="/forgot-password" element={
         <PublicRoute>
-          <LazyRoute><ForgotPasswordPage /></LazyRoute>
-        </PublicRoute>
+          <ForgotPasswordPage />        </PublicRoute>
       } />
 
       {/* Protected routes with PanelSection layout */}
@@ -121,12 +102,12 @@ function AppRoutes() {
         </PrivateRoute>
       }>
         {/* Home/Discovery */}
-        <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
-        <Route path="/search" element={<LazyRoute><SearchPage /></LazyRoute>} />
-        <Route path="/search/:query" element={<LazyRoute><SearchResultsPage /></LazyRoute>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search/:query" element={<SearchResultsPage />} />
 
         {/* Library (hub with nested tabs) */}
-        <Route path="/library" element={<LazyRoute><LibraryHub /></LazyRoute>}>
+        <Route path="/library" element={<LibraryHub />}>
           <Route index element={<Navigate to="tracks" replace />} />
           <Route path="tracks" element={<Outlet />} />
           <Route path="albums" element={<Outlet />} />
@@ -137,25 +118,25 @@ function AppRoutes() {
         </Route>
 
         {/* Entity routes */}
-        <Route path="/track/:id" element={<LazyRoute><TrackPage /></LazyRoute>} />
-        <Route path="/album/:id" element={<LazyRoute><AlbumPage /></LazyRoute>} />
-        <Route path="/artist/:id" element={<LazyRoute><ArtistPage /></LazyRoute>} />
-        <Route path="/show/:id" element={<LazyRoute><ShowPage /></LazyRoute>} />
-        <Route path="/episode/:id" element={<LazyRoute><EpisodePage /></LazyRoute>} />
-        <Route path="/playlist/:id" element={<LazyRoute><PlaylistPage /></LazyRoute>} />
-        <Route path="/playlist/:id/edit" element={<LazyRoute><PlaylistEditor /></LazyRoute>} />
-        <Route path="/playlist/create" element={<LazyRoute><PlaylistEditor /></LazyRoute>} />
+        <Route path="/track/:id" element={<TrackPage />} />
+        <Route path="/album/:id" element={<AlbumPage />} />
+        <Route path="/artist/:id" element={<ArtistPage />} />
+        <Route path="/show/:id" element={<ShowPage />} />
+        <Route path="/episode/:id" element={<EpisodePage />} />
+        <Route path="/playlist/:id" element={<PlaylistPage />} />
+        <Route path="/playlist/:id/edit" element={<PlaylistEditor />} />
+        <Route path="/playlist/create" element={<PlaylistEditor />} />
 
         {/* Profile/Social */}
-        <Route path="/profile/:username" element={<LazyRoute><ProfilePage /></LazyRoute>} />
-        <Route path="/settings" element={<LazyRoute><SettingsPage /></LazyRoute>} />
-        <Route path="/feed" element={<LazyRoute><BuddyFeedPage /></LazyRoute>} />
-        <Route path="/blend/:id" element={<LazyRoute><BlendPage /></LazyRoute>} />
+        <Route path="/profile/:username" element={<ProfilePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/feed" element={<BuddyFeedPage />} />
+        <Route path="/blend/:id" element={<BlendPage />} />
 
         </Route>
 
       {/* 404 */}
-      <Route path="*" element={<LazyRoute><NotFoundPage /></LazyRoute>} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
@@ -173,7 +154,7 @@ export default function App() {
           <AppRoutes />
         </PlayerProvider>
       </AuthProvider>
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
+

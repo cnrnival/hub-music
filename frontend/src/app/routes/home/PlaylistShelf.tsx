@@ -6,15 +6,15 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 import { Play, Heart, MoreHorizontal, ChevronRight, ListMusic } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
-import { ScrollArea } from '../../ui/scroll-area';
-import { PlaylistCard } from '../../../components/playlist/PlaylistCard';
-import { usePlayerStore } from '../../../state/playerStore';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
+import { ScrollArea } from '@/ui/scroll-area';
+import { PlaylistCard } from '@/components/playlist/PlaylistCard';
+import { usePlayerStore } from '@/state/playerStore';
 
 interface PlaylistShelfProps {
   title: string;
@@ -103,4 +103,4 @@ export function PlaylistShelf({
   );
 }
 
-import { ChevronRight, ListMusic, Play, Heart, MoreHorizontal, Share2, Plus, Download, Radio } from 'lucide-react';
+import { ChevronRight, ListMusic, Play, Heart, MoreHorizontal, Share2, Plus, Download, Radio } from 'lucide-react';export default PlaylistShelf;

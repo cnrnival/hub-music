@@ -127,4 +127,4 @@ export function EpisodesTab() {
   );
 }
 
-import { formatDuration } from '../../../../../lib/utils';
+import { formatDuration } from '../../../../../lib/utils';export default EpisodesTab;

@@ -9,18 +9,18 @@
 import { useState, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Play, Heart, Clock, Download, MoreHorizontal, Grid, List, Filter, ChevronDown } from 'lucide-react';
-import { api } from '../../../lib/api';
-import { formatDuration, formatDate, formatCount } from '../../../lib/utils';
-import { Button } from '../../components/ui/button';
-import { Badge } from '../../components/common/Badge';
-import { DropdownMenu } from '../../components/common/DropdownMenu';
-import { Skeleton } from '../../components/ui/skeleton';
-import { EmptyState } from '../../components/common/EmptyState';
-import { VirtualList } from '../../components/common/VirtualList';
-import { TrackRow } from '../../components/track/TrackRow';
-import { usePlayerStore } from '../../../state/playerStore';
-import { useUIStore } from '../../../state/uiStore';
-import { useLibraryStore } from '../../../state/libraryStore';
+import { api } from '@/lib/api';
+import { formatDuration, formatDate, formatCount } from '@/lib/utils';
+import { Button } from '@/ui/button';
+import { Badge } from '@/common/Badge';
+import { DropdownMenu } from '@/common/DropdownMenu';
+import { Skeleton } from '@/ui/skeleton';
+import { EmptyState } from '@/common/EmptyState';
+import { VirtualList } from '@/common/VirtualList';
+import { TrackRow } from '@/components/track/TrackRow';
+import { usePlayerStore } from '@/state/playerStore';
+import { useUIStore } from '@/state/uiStore';
+import { useLibraryStore } from '@/state/libraryStore';
 
 interface Episode {
   id: string;
@@ -525,7 +525,7 @@ function EpisodeRow({
   );
 }
 
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
 import { Plus, Check } from 'lucide-react';
 
 function EpisodesSkeleton() {
@@ -565,4 +565,4 @@ function EpisodesError({ onRetry }: { onRetry: () => void }) {
       />
     </div>
   );
-}
+}export default EpisodesTab;

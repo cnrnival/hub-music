@@ -9,7 +9,7 @@
 import { createContext, useContext, useEffect, useRef, useState, ReactNode, useCallback } from 'react';
 import { Howl, Howler } from 'howler';
 import { useAuth } from './useAuth';
-import { api } from '../lib/api';
+import { api } from '@/lib/api';
 
 interface Track {
   id: string;

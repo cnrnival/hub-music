@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { cn } from '../../../lib/utils';
-import { formatNumber } from '../../../lib/utils';
+import { cn } from '@/lib/utils';
+import { formatNumber } from '@/lib/utils';
 import { Play, Heart, MoreHorizontal, User, UserPlus, UserCheck, Music, Heart as HeartIcon, Check } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Badge } from '../../ui/badge';
-import { Avatar } from '../../ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../ui/dropdown-menu';
+import { Button } from '@/ui/button';
+import { Badge } from '@/ui/badge';
+import { Avatar } from '@/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/ui/dropdown-menu';
 
 interface ArtistRowProps {
   artist: any;
@@ -34,7 +34,7 @@ export function ArtistRow({ artist, variant = 'default', onPlay, onClick }: Arti
   );
 
   return (
-    <div className={rowClasses} onClick={onClick} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onClick?.())}>
+    <div className={rowClasses} onClick={onClick} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onClick?.()}>
       {/* Avatar */}
       <div className="relative w-12 h-12 flex-shrink-0 rounded-full overflow-hidden">
         {artist.avatarUrl ? (
@@ -104,4 +104,3 @@ export function ArtistRow({ artist, variant = 'default', onPlay, onClick }: Arti
   );
 }
 
-import { User, Check, Share2, UserPlus, UserCheck } from 'lucide-react';

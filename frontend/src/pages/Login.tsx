@@ -9,9 +9,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { api } from '../lib/api';
-import { getErrorMessage } from '../lib/utils';
-import { cn } from '../lib/utils';
+import { api } from '@/lib/api';
+import { getErrorMessage } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card } from '../components/ui/card';

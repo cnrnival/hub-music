@@ -6,13 +6,13 @@
  * @languages pt-BR / en-US
  */
 
-import { usePlayerStore } from '../../../state/playerStore';
+import { usePlayerStore } from '@/state/playerStore';
 import { useAudio } from './useAudio';
 import { useWaveform } from './useWaveform';
 import { usePlayerSnapshot } from './usePlayerSnapshot';
 import { useEffect, useCallback } from 'react';
 import { useAuth } from '../auth/useAuth';
-import { api } from '../../../lib/api';
+import { api } from '@/lib/api';
 
 export function usePlayer() {
   const store = usePlayerStore();
@@ -126,4 +126,9 @@ export function usePlayer() {
 }
 
 // Also export the raw store for direct access
-export { usePlayerStore } from '../../../state/playerStore';
+export { usePlayerStore } from '@/state/playerStore';
+
+// PlayerProvider - wraps app with player store
+export function PlayerProvider({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
+}

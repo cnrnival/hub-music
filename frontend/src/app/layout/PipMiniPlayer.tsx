@@ -7,7 +7,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { cn } from '../../lib/utils';
+import { cn, formatDuration } from '@/lib/utils';
 import {
   Play,
   Pause,
@@ -19,10 +19,9 @@ import {
   Minimize2,
   GripVertical,
 } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { MiniWaveform } from '../components/player/MiniWaveform';
-import { usePlayerStore } from '../../state/playerStore';
-import { formatDuration } from '../../lib/utils';
+import { Button } from '@/ui/button';
+import { MiniWaveform } from '@/components/player/MiniWaveform';
+import { usePlayerStore } from '@/state/playerStore';
 
 interface PipMiniPlayerProps {
   position: { x: number; y: number };

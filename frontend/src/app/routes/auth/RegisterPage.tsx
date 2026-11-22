@@ -8,14 +8,14 @@
 
 import { useState } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Loader2, Music, Sparkles, User, Shield } from 'lucide-react';
-import { Button } from '../../ui/button';
-import { Input } from '../../ui/input';
-import { Label } from '../../ui/label';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../../ui/card';
-import { Separator } from '../../ui/separator';
-import { useAuth } from '../../../hooks/auth/useAuth';
-import { cn } from '../../../lib/utils';
+import { Mail, Lock, Eye, EyeOff, AlertCircle, CheckCircle, Loader2, Music, Sparkles, User, Shield, UserPlus, Link as LinkIcon } from 'lucide-react';
+import { Button } from '@/ui/button';
+import { Input } from '@/ui/input';
+import { Label } from '@/ui/label';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/ui/card';
+import { Separator } from '@/ui/separator';
+import { useAuth } from '@/hooks/auth/useAuth';
+import { cn } from '@/lib/utils';
 
 export function RegisterPage() {
   const navigate = useNavigate();
@@ -172,7 +172,7 @@ export function RegisterPage() {
                   className="h-11 gap-1"
                   title="Cadastrar com Spotify"
                 >
-                  <Spotify className="w-5 h-5" />
+                  <Music className="w-5 h-5 text-green-400" />
                 </Button>
                 <Button
                   variant="outline"
@@ -181,7 +181,7 @@ export function RegisterPage() {
                   className="h-11 gap-1"
                   title="Cadastrar com Apple"
                 >
-                  <Apple className="w-5 h-5" />
+                  <Music className="w-5 h-5 text-purple-400" />
                 </Button>
                 <Button
                   variant="outline"
@@ -405,4 +405,4 @@ export function RegisterPage() {
   );
 }
 
-import { Spotify, Apple, UserPlus, User } from 'lucide-react';
+export default RegisterPage;
