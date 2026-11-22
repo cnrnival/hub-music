@@ -20,7 +20,7 @@ services:
     region: oregon  # Mesma região do banco PostgreSQL (Ohio/us-east-1)
     branch: main
     rootDir: backend
-    buildCommand: "npm install && npx prisma generate && npx prisma migrate deploy"
+    buildCommand: "npm install && npm run build && npx prisma generate && npx prisma migrate deploy"
     startCommand: "npm start"
     envVars:
       - key: NODE_ENV
