@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Hub Music - Plataforma open source de streaming e compartilhamento de música. Combina a UX do Spotify com as funcionalidades sociais do SoundCloud." />
+    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#000000" />
+    <title>Hub Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://seu-app.vercel.app/" />
+    <meta property="og:title" content="Hub Music" />
+    <meta property="og:description" content="Plataforma open source de streaming e compartilhamento de música" />
+    <meta property="og:image" content="https://seu-app.vercel.app/og-image.png" />
+    <meta property="og:site_name" content="Hub Music" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://seu-app.vercel.app/" />
+    <meta name="twitter:title" content="Hub Music" />
+    <meta name="twitter:description" content="Plataforma open source de streaming e compartilhamento de música" />
+    <meta name="twitter:image" content="https://seu-app.vercel.app/og-image.png" />
+
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Hub Music" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Performance -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+    <!-- DNS prefetch para o backend (URL definida via VITE_API_URL no painel do Vercel) -->
+
+    <!-- Favicon variants -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#FF4081" />
+    <meta name="msapplication-TileColor" content="#FF4081" />
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="/pwa-register.js"></script>
+  </body>
+</html>

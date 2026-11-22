@@ -1,0 +1,185 @@
+// ============================================================
+// Hub Music - Prisma Schema
+// Modelo de dados: usuários, faixas, playlists, likes, reposts, comentários, seguidores
+// Data model: users, tracks, playlists, likes, reposts, comments, followers
+//
+// @languages pt-BR / en-US
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Tipo de conta / Account type
+enum AccountType {
+  LISTENER // Ouvinte / Listener
+  ARTIST   // Artista / Artist
+  BOTH     // Ambos / Both
+}
+
+// Visibilidade / Visibility
+enum Visibility {
+  PUBLIC  // Público / Public
+  PRIVATE // Privado / Private
+}
+
+// Fonte da faixa / Track source
+enum TrackSource {
+  LOCAL     // Upload local / Local upload
+  DEEZER    // Deezer API
+  FREETOUSE // Free To Use API
+  JAMENDO   // Jamendo API
+  SOUNDCLOUD // SoundCloud API
+  AUDIUS    // Audius API
+}
+
+model User {
+  id            String    @id @default(uuid()) // ID único / Unique ID
+  username      String    @unique // Nome de usuário / Username
+  email         String    @unique // Email / Email
+  passwordHash  String    // Hash da senha / Password hash
+  displayName   String?   // Nome de exibição / Display name
+  bio           String?   // Biografia / Bio
+  avatarUrl     String?   // URL do avatar / Avatar URL
+  accountType   AccountType @default(BOTH) // Tipo de conta / Account type
+  createdAt     DateTime  @default(now()) // Data de criação / Created at
+  updatedAt     DateTime  @updatedAt // Data de atualização / Updated at
+
+  tracks        Track[]   // Faixas enviadas / Tracks uploaded
+  playlists     Playlist[] // Playlists criadas / Playlists created
+  likes         Like[]    // Curtidas / Likes
+  reposts       Repost[]  // Reposts / Reposts
+  comments      Comment[] // Comentários / Comments
+  following     Follow[]  @relation("Following") // Quem segue / Following
+  followers     Follow[]  @relation("Follower") // Seguidores / Followers
+
+  @@index([email]) // Índice de email / Email index
+  @@index([username]) // Índice de username / Username index
+}
+
+model Genre {
+  id    String   @id @default(uuid()) // ID único / Unique ID
+  name  String   @unique // Nome do gênero / Genre name
+  slug  String   @unique // Slug do gênero / Genre slug
+  tracks Track[] // Faixas deste gênero / Tracks of this genre
+}
+
+model Track {
+  id              String       @id @default(uuid()) // ID único / Unique ID
+  userId          String       // ID do usuário dono / Owner user ID
+  user            User         @relation(fields: [userId], references: [id]) // Relação com usuário / User relation
+  genreId         String?      // ID do gênero / Genre ID
+  genre           Genre?       @relation(fields: [genreId], references: [id]) // Relação com gênero / Genre relation
+  title           String       // Título da faixa / Track title
+  artist          String       // Nome do artista / Artist name
+  description     String?      // Descrição / Description
+  audioUrl        String       // URL do arquivo de áudio / Audio file URL
+  coverUrl        String?      // URL da capa / Cover URL
+  durationSeconds Int          // Duração em segundos / Duration in seconds
+  format          String       // Formato do arquivo / File format
+  visibility      Visibility   @default(PUBLIC) // Visibilidade / Visibility
+  waveformData    Json?        // Dados da waveform / Waveform data
+  source          TrackSource  @default(LOCAL) // Fonte da faixa / Track source
+  externalId      String?      // ID externo (API pública) / External ID (public API)
+  isrc            String?      // Código ISRC / ISRC code
+  playCount       Int          @default(0)     // Contagem de reproduções / Play count
+  createdAt       DateTime     @default(now()) // Data de criação / Created at
+
+  playlistItems   PlaylistTrack[] // Itens de playlist / Playlist items
+  likes           Like[]        // Curtidas / Likes
+  reposts         Repost[]      // Reposts / Reposts
+  comments        Comment[]     // Comentários / Comments
+
+  @@index([userId]) // Índice de usuário / User index
+  @@index([genreId]) // Índice de gênero / Genre index
+  @@index([visibility]) // Índice de visibilidade / Visibility index
+  @@index([createdAt]) // Índice de data / Date index
+  @@index([source]) // Índice de fonte / Source index
+}
+
+model Playlist {
+  id          String   @id @default(uuid()) // ID único / Unique ID
+  userId      String   // ID do usuário dono / Owner user ID
+  user        User     @relation(fields: [userId], references: [id]) // Relação com usuário / User relation
+  name        String   // Nome da playlist / Playlist name
+  description String?  // Descrição / Description
+  coverUrl    String?  // URL da capa / Cover URL
+  visibility  Visibility @default(PUBLIC) // Visibilidade / Visibility
+  createdAt   DateTime @default(now()) // Data de criação / Created at
+  updatedAt   DateTime @updatedAt // Data de atualização / Updated at
+
+  tracks      PlaylistTrack[] // Faixas na playlist / Tracks in playlist
+
+  @@index([userId]) // Índice de usuário / User index
+  @@index([visibility]) // Índice de visibilidade / Visibility index
+}
+
+model PlaylistTrack {
+  id          String   @id @default(uuid()) // ID único / Unique ID
+  playlistId  String   // ID da playlist / Playlist ID
+  playlist    Playlist @relation(fields: [playlistId], references: [id], onDelete: Cascade) // Relação com playlist / Playlist relation
+  trackId     String   // ID da faixa / Track ID
+  track       Track    @relation(fields: [trackId], references: [id], onDelete: Cascade) // Relação com faixa / Track relation
+  position    Int      // Posição na playlist / Position in playlist
+  addedAt     DateTime @default(now()) // Data de adição / Added at
+
+  @@unique([playlistId, trackId]) // Único por playlist+faixa / Unique per playlist+track
+  @@index([playlistId, position]) // Índice de playlist+posição / Playlist+position index
+}
+
+model Like {
+  id        String   @id @default(uuid()) // ID único / Unique ID
+  userId    String   // ID do usuário / User ID
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Relação com usuário / User relation
+  trackId   String   // ID da faixa / Track ID
+  track     Track    @relation(fields: [trackId], references: [id], onDelete: Cascade) // Relação com faixa / Track relation
+  createdAt DateTime @default(now()) // Data de criação / Created at
+
+  @@unique([userId, trackId]) // Único por usuário+faixa / Unique per user+track
+  @@index([userId]) // Índice de usuário / User index
+  @@index([trackId]) // Índice de faixa / Track index
+}
+
+model Repost {
+  id        String   @id @default(uuid()) // ID único / Unique ID
+  userId    String   // ID do usuário / User ID
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Relação com usuário / User relation
+  trackId   String   // ID da faixa / Track ID
+  track     Track    @relation(fields: [trackId], references: [id], onDelete: Cascade) // Relação com faixa / Track relation
+  createdAt DateTime @default(now()) // Data de criação / Created at
+
+  @@unique([userId, trackId]) // Único por usuário+faixa / Unique per user+track
+  @@index([userId]) // Índice de usuário / User index
+  @@index([trackId]) // Índice de faixa / Track index
+}
+
+model Comment {
+  id        String   @id @default(uuid()) // ID único / Unique ID
+  userId    String   // ID do usuário / User ID
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade) // Relação com usuário / User relation
+  trackId   String   // ID da faixa / Track ID
+  track     Track    @relation(fields: [trackId], references: [id], onDelete: Cascade) // Relação com faixa / Track relation
+  content   String   @db.VarChar(280) // Conteúdo do comentário / Comment content
+  createdAt DateTime @default(now()) // Data de criação / Created at
+
+  @@index([trackId, createdAt]) // Índice de faixa+data / Track+date index
+  @@index([userId]) // Índice de usuário / User index
+}
+
+model Follow {
+  id           String   @id @default(uuid()) // ID único / Unique ID
+  followerId   String   // ID do seguidor / Follower ID
+  follower     User     @relation("Following", fields: [followerId], references: [id], onDelete: Cascade) // Relação seguidor / Follower relation
+  followedId   String   // ID do seguido / Followed ID
+  followed     User     @relation("Follower", fields: [followedId], references: [id], onDelete: Cascade) // Relação seguido / Followed relation
+  createdAt    DateTime @default(now()) // Data de criação / Created at
+
+  @@unique([followerId, followedId]) // Único por par / Unique per pair
+  @@index([followerId]) // Índice de seguidor / Follower index
+  @@index([followedId]) // Índice de seguido / Followed index
+}

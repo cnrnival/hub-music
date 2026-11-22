@@ -1,0 +1,63 @@
+# ============================================
+# Render.yaml - Deploy do Hub Music
+# Backend no Render + MySQL externo
+# ============================================
+#
+# COMO USAR:
+# 1. Conecte seu repositório GitHub ao Render
+# 2. Crie um "Web Service" apontando para este render.yaml
+# 3. No painel do Render, adicione a variável DATABASE_URL com sua conexão MySQL
+#    Ex: mysql://usuario:senha@host:3306/banco
+# 4. O banco MySQL pode ser um serviço externo (Aiven, Railway, etc.)
+#     O Render não oferece MySQL nativo gratuito.
+# ============================================
+
+services:
+  # ============================================
+  # Backend API (Node.js + Fastify)
+  # ============================================
+  - type: web
+    name: hub-music-backend
+    env: node
+    region: sa  # São Paulo (mais próximo do Brasil)
+    branch: main
+    rootDir: backend
+    buildCommand: "npm install && npx prisma generate && npx prisma migrate deploy"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"  # Render define PORT automaticamente
+      - key: DATABASE_URL
+        sync: false  # Configure manualmente no painel do Render com sua URL MySQL
+      - key: JWT_SECRET
+        generate: true
+      - key: JWT_REFRESH_SECRET
+        generate: true
+      - key: JWT_EXPIRES_IN
+        value: "15m"
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: "7d"
+      - key: COOKIE_SECRET
+        generate: true
+      - key: DEEZER_API_URL
+        value: "https://api.deezer.com"
+      - key: MUSICBRAINZ_USER_AGENT
+        value: "HubMusic/1.0"
+      - key: FREETOUSE_API_URL
+        value: "https://api.freetouse.com/v3"
+      - key: JAMENDO_CLIENT_ID
+        value: ${JAMENDO_CLIENT_ID}  # Opcional - configure no painel
+      - key: JAMENDO_API_URL
+        value: "https://api.jamendo.com/v3.0"
+      - key: SOUNDCLOUD_CLIENT_ID
+        value: ${SOUNDCLOUD_CLIENT_ID}  # Opcional
+      - key: SOUNDCLOUD_CLIENT_SECRET
+        value: ${SOUNDCLOUD_CLIENT_SECRET}  # Opcional
+      - key: LRCLIB_API_URL
+        value: "https://lrclib.net/api"
+      - key: SAYMUSIC_API_URL
+        value: "https://sayamusicapi.shnwazdeveloperx.workers.dev"
+      - key: FRONTEND_URL
+        value: ${FRONTEND_URL}  # Ex: https://hub-music-frontend.vercel.app
