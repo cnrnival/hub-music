@@ -41,7 +41,7 @@ async function setupPlugins() {
     'https://hub-music.vercel.app',
     'http://localhost:5173',
     'http://127.0.0.1:5173'
-  ].filter(Boolean);
+  ].filter((v): v is string => typeof v === 'string' && v.length > 0);
 
   await app.register(cors, {
     origin: allowedOrigins,
